@@ -116,6 +116,8 @@ module Control(input wire clk, input wire rstIn,
         RLODSB  = 8'h79,
         LDSP    = 8'h7A,
         LDSPI   = 8'h7B,
+        SPIRFR  = 8'h7C,
+        SPDRFR  = 8'h7D,
 
         OR      = 8'h80,
         AND     = 8'h81,
@@ -676,6 +678,16 @@ module Control(input wire clk, input wire rstIn,
                             cycleCount <= 1;
                             addressOutBuff <= stackPointer + 1 + r2Out;
                             memReadWrite <= ADDR_MODE_RD;
+                        end
+
+                        SPIRFR:
+                        begin
+                            state <= I_ACCESS_REG_READ;
+                        end
+
+                        SPDRFR:
+                        begin
+                            state <= I_ACCESS_REG_READ;
                         end
 
                         //ALU
@@ -2025,6 +2037,18 @@ module Control(input wire clk, input wire rstIn,
                         memReadWrite <= ADDR_MODE_WRT;
                         state <= I_ACCESS_MEM_WRITE;
                     end
+
+                    else if(instruction == SPIRFR)
+                    begin
+                        si <= {r3Out, r2Out, r1Out};
+                        state <= I_PC_NEXT;
+                    end
+
+                    else if(instruction == SPDRFR)
+                    begin
+                        di <= {r3Out, r2Out, r1Out};
+                        state <= I_PC_NEXT;
+                    end
                 end
 
                 I_ACCESS_REG_WRITE:
@@ -2600,6 +2624,16 @@ module Control(input wire clk, input wire rstIn,
                             end
 
                             LDSPI:
+                            begin
+                                pc <= pc + 1;
+                            end
+
+                            SPIRFR:
+                            begin
+                                pc <= pc + 1;
+                            end
+
+                            SPDRFR:
                             begin
                                 pc <= pc + 1;
                             end
