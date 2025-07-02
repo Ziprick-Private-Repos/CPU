@@ -2,7 +2,7 @@
 `default_nettype none
 
 module IO(input wire clk, input wire rst);
-    localparam ColorByte = 24'hFFFFFE;
+    //localparam ColorByte = 24'hFFFFFE;
     localparam GFXMode = 24'hFFFFFF;
 
     localparam KEYREGPTR = 24'hFFFFFD;
@@ -30,6 +30,11 @@ module IO(input wire clk, input wire rst);
     wire [23:0]address;
     reg [3:0]hardInterrupt = 0;
 
+    wire [7:0]memTestA;
+    wire [7:0]memTestB;
+    assign memTestA = memory[0];
+    assign memTestB = memory[1];
+
     reg [7:0]memory[0:10000];
     integer i;
 
@@ -54,7 +59,7 @@ module IO(input wire clk, input wire rst);
     wire [7:0]dataOut;
     wire wrt;
 
-    reg [7:0]colorByte;
+    //reg [7:0]colorByte;
     reg gfxMode;
     reg [7:0]keyRegPtr; //key code
     reg keyStatusPtr; //key pressed
@@ -76,7 +81,7 @@ module IO(input wire clk, input wire rst);
     begin
         if(rst)
         begin
-            colorByte <= 0;
+            //colorByte <= 0;
             gfxMode <= 0;
             keyRegPtr <= 0; 
             keyStatusPtr <= 0;
@@ -182,8 +187,8 @@ module IO(input wire clk, input wire rst);
             else if (address == GFXMode) 
                 dataIn = gfxMode;
 
-            else if (address == ColorByte) 
-                dataIn = colorByte;
+            //else if (address == ColorByte) 
+                //dataIn = colorByte;
 
             else
                 dataIn = memory[address];    
@@ -256,8 +261,8 @@ module IO(input wire clk, input wire rst);
             else if (address == GFXMode) 
                 gfxMode = dataOut;
 
-            else if (address == ColorByte)
-                colorByte = dataOut;
+            //else if (address == ColorByte)
+                //colorByte = dataOut;
 
             else
                 memory[address] = dataOut;

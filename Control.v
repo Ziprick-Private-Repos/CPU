@@ -69,11 +69,15 @@ module Control(input wire clk, input wire rstIn,
         I_FETCH = 4'b0001,
         I_DECODE = 4'b0010,
         I_ACCESS_MEM_READ = 4'b0011,
-        I_ACCESS_MEM_WRITE = 4'b0100,
-        I_ACCESS_ALU = 4'b0101,
-        I_ACCESS_REG_READ = 4'b0110,
-        I_ACCESS_REG_WRITE = 4'b0111,
-        I_PC_NEXT = 4'b1000;
+        //I_ACCESS_MEM_READ_2 = 4'b0100,
+        I_ACCESS_MEM_WRITE = 4'b0101,
+        I_ACCESS_MEM_WRITE_2 = 4'b0110,
+        I_ACCESS_ALU = 4'b0111,
+        I_ACCESS_REG_READ = 4'b1000,
+        I_ACCESS_REG_READ_2 = 4'b1001,
+        I_ACCESS_REG_WRITE = 4'b1010,
+        I_ACCESS_REG_WRITE_2 = 4'b1011,
+        I_PC_NEXT = 4'b1100;
 
     //opcodes
     localparam[7:0]
@@ -95,7 +99,7 @@ module Control(input wire clk, input wire rstIn,
         PUSHA   = 8'h10,
         POPA    = 8'h11,
         CLI     = 8'h3E,
-        STI     = 8'h7E,
+        STI     = 8'h09,
         HALT    = 8'h18,
         CALL    = 8'h28,
         RTS     = 8'h38,
@@ -118,6 +122,7 @@ module Control(input wire clk, input wire rstIn,
         LDSPI   = 8'h7B,
         SPIRFR  = 8'h7C,
         SPDRFR  = 8'h7D,
+        STOSBA  = 8'h7E,
 
         OR      = 8'h80,
         AND     = 8'h81,
@@ -550,6 +555,12 @@ module Control(input wire clk, input wire rstIn,
                         end
 
                         STOSB:
+                        begin
+                            state <= I_ACCESS_REG_READ;
+                            addressOutBuff <= di;
+                        end
+
+                        STOSBA:
                         begin
                             state <= I_ACCESS_REG_READ;
                             addressOutBuff <= di;
@@ -1598,6 +1609,14 @@ module Control(input wire clk, input wire rstIn,
                         cycleCount <= 1;
                     end
 
+                    else if(instruction == STOSBA)
+                    begin
+                        memReadWrite <= ADDR_MODE_RD;
+                        di <= di + 1;
+                        state <= I_ACCESS_REG_READ_2;
+                        cycleCount <= 1;   
+                    end
+
                     else if(instruction == RSTOSB)
                     begin
                         di <= di - 1;
@@ -1693,6 +1712,16 @@ module Control(input wire clk, input wire rstIn,
                             state <= I_PC_NEXT;
                             cycleCount <= 1;
                         end
+                    end
+                end
+
+                I_ACCESS_MEM_WRITE_2:
+                begin
+                    if(instruction == STOSBA)
+                    begin
+                        di <= di + 1;
+                        state <= I_PC_NEXT;
+                        cycleCount <= 1;
                     end
                 end
 
@@ -2031,6 +2060,13 @@ module Control(input wire clk, input wire rstIn,
                         state <= I_ACCESS_MEM_WRITE;
                     end
 
+                    else if(instruction == STOSBA)
+                    begin
+                        toDataBus <= r1Out;
+                        memReadWrite <= ADDR_MODE_WRT;
+                        state <= I_ACCESS_MEM_WRITE;
+                    end
+
                     else if(instruction == RSTOSB)
                     begin
                         toDataBus <= r1Out;
@@ -2048,6 +2084,17 @@ module Control(input wire clk, input wire rstIn,
                     begin
                         di <= {r3Out, r2Out, r1Out};
                         state <= I_PC_NEXT;
+                    end
+                end
+
+                I_ACCESS_REG_READ_2:
+                begin
+                    if(instruction == STOSBA)
+                    begin
+                        addressOutBuff <= di;
+                        toDataBus <= r2Out;
+                        memReadWrite <= ADDR_MODE_WRT;
+                        state <= I_ACCESS_MEM_WRITE_2;
                     end
                 end
 
@@ -2346,6 +2393,16 @@ module Control(input wire clk, input wire rstIn,
                     end
                 end
 
+                I_ACCESS_REG_WRITE_2:
+                begin
+                    if(instruction == STOSB)
+                    begin
+                        di <= di + 1;
+                        state <= I_PC_NEXT;
+                        cycleCount <= 1;
+                    end
+                end
+
                 //I_INT_HNDL:
                 //begin
                     //state <= I_ACCESS_MEM_READ;
@@ -2578,6 +2635,11 @@ module Control(input wire clk, input wire rstIn,
                             end
 
                             STOSB:
+                            begin
+                                pc <= pc + 1;
+                            end
+
+                            STOSBA:
                             begin
                                 pc <= pc + 1;
                             end
