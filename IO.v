@@ -30,18 +30,13 @@ module IO(input wire clk, input wire rst);
     wire [23:0]address;
     reg [3:0]hardInterrupt = 0;
 
-    wire [7:0]memTestA;
-    wire [7:0]memTestB;
-    assign memTestA = memory[0];
-    assign memTestB = memory[1];
-
     reg [7:0]memory[0:10000];
     integer i;
 
     initial begin
         for(i = 0; i < 65536; i = i + 1)
         begin      
-            memory[i] = 0;
+            memory[i] = 8'hzz;
         end
 
         $readmemb("data.txt", memory);
