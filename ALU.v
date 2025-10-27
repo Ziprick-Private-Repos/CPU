@@ -54,7 +54,7 @@ output reg divZero);
 
 		else
 		begin
-			if(run && cycleCnt == 0)
+			if(run)
 			begin
 				cycleCnt <= cycle;
 				dividend <= regA;
@@ -62,37 +62,37 @@ output reg divZero);
 				divDone <= 0;
 			end
 
-			if(cycleCnt > 0)
+			else if(cycleCnt > 0)
 			begin
 				cycleCnt <= cycleCnt - 1;
 				case(opcode)
-					8'b0000_0000: //or
+					8'b1000_0000: //or
 					begin
-						accumulator = regA | regB;
+						accumulator <= regA | regB;
 
 						if(accumulator == 0)
 							zeroFlag <= 1;
 					end
 
-					8'b0000_0001: //and
+					8'b1000_0001: //and
 					begin
-						accumulator = regA & regB;
+						accumulator <= regA & regB;
 						
 						if(accumulator == 0)
 							zeroFlag <= 1;
 					end
 
-					8'b0000_0010: //shl
+					8'b1000_0010: //shl
 					begin
 						accumulator <= {regA[6:0], 1'b0};
 					end
 
-					8'b0000_0011: //shr
+					8'b1000_0011: //shr
 					begin
 						accumulator <= {1'b0, regA[7:1]};
 					end
 
-					8'b0000_0100: //cmp
+					8'b1000_0100: //cmp
 					begin
 						accumulator <= regA;
 						if(regA > regB)
@@ -111,7 +111,7 @@ output reg divZero);
 							zeroFlag <= 1;
 					end
 
-					8'b0000_0101: //not
+					8'b1000_0101: //not
 					begin
 						accumulator <= ~regA;
 						
@@ -119,22 +119,22 @@ output reg divZero);
 							zeroFlag <= 1;
 					end
 
-					8'b0000_0110: //xor
+					8'b1000_0110: //xor
 					begin
-						accumulator <= ((regA | regB) & (~regA | ~regB));
+						accumulator <= regA ^ regB;
 						
 						if(accumulator == 0)
 								zeroFlag <= 1;	
 					end
 
-					8'b0000_0111: //add
+					8'b1000_0111: //add
 					begin
 						accumulator <= regA + regB;
 						overflow <= regA + regB;
 						overflowFlag <= overflow[8];
 					end
 
-					8'b0000_1000: //sub
+					8'b1000_1000: //sub
 					begin
 						accumulator <= regA - regB;
 						
@@ -142,14 +142,14 @@ output reg divZero);
 							zeroFlag <= 1;
 					end
 		
-					8'b0000_1001: //inc
+					8'b1000_1001: //inc
 					begin
 						accumulator <= regA + 1'b1;
 						overflow <= regA + 1;
 						overflowFlag <= overflow[8];
 					end
 					
-					8'b0000_1010: //dec
+					8'b1000_1010: //dec
 					begin
 						accumulator <= regA - 1'b1;
 
@@ -157,17 +157,17 @@ output reg divZero);
 							zeroFlag <= 1;
 					end
 
-					8'b0000_1011: //ROL
+					8'b1000_1011: //ROL
 					begin
 						accumulator <= {regA[6:0], regA[7]};
 					end
 
-					8'b0000_1100: //ROR
+					8'b1000_1100: //ROR
 					begin
 						accumulator <= {regA[0], regA[7:1]};
 					end
 
-					8'b0000_1101: //MUL
+					8'b1000_1101: //MUL
 					begin
 						accumulator <= accumulator + regA;
 
@@ -178,7 +178,7 @@ output reg divZero);
 							zeroFlag <= 1;
 					end
 
-					8'b0000_1110: //DIV
+					8'b1000_1110: //DIV
 					begin
 						//regA == dividend, regB == divisor
 						if(divisor == 0) //div by zero

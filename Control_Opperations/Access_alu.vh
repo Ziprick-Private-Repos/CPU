@@ -99,14 +99,14 @@ end
 else if(instruction == NOT)
 begin
     aluRun <= 1;
+    aluCycle <= 1;
     tmpReg <= 8'hZZ;
     zeroFlag <= zeroFlagBus;
     state <= I_ACCESS_REG_WRITE;
 end
 
 else if(instruction == XOR)
-begin
-    aluRun <= 1;
+begin    
     if(aluRegSel[1:0] == 2'b00)
         tmpReg <= r1Out;
 
@@ -118,6 +118,9 @@ begin
 
     else if(aluRegSel[1:0] == 2'b11)
         tmpReg <= r4Out;
+
+    aluRun <= 1;
+    aluCycle <= 1;
 
     zeroFlag <= zeroFlagBus;
     state <= I_ACCESS_REG_WRITE;

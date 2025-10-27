@@ -1,20 +1,28 @@
 if(instruction == MOV)
 begin                    
-    case(dataIn[1:0])
-        2'b00:
-            tmpReg <= r1Out;
-            
-        2'b01:
-            tmpReg <= r2Out;
-            
-        2'b10:
-            tmpReg <= r3Out;
-            
-        2'b11:
-            tmpReg <= r4Out;
-    endcase
+    if(cycleCount == 1)
+    begin
+        cycleCount <= cycleCount - 1;
+    end
+    
+    else
+    begin
+        case(dataIn[1:0])
+            2'b00:
+                tmpReg <= r1Out;
+                
+            2'b01:
+                tmpReg <= r2Out;
+                
+            2'b10:
+                tmpReg <= r3Out;
+                
+            2'b11:
+                tmpReg <= r4Out;
+        endcase
 
-    state <= I_ACCESS_REG_WRITE;
+        state <= I_ACCESS_REG_WRITE;
+    end
 end
 
 else if(instruction == XCHG)
