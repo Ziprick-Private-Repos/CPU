@@ -329,7 +329,7 @@ begin
     //r1En <= 1;
     //r2En <= 1;
     state <= I_PC_NEXT; 
-    cycleCount <= 3;
+    cycleCount <= 4;
 end
 
 else if(instruction == SUBS)
@@ -338,7 +338,7 @@ begin
     //r1En <= 1;
     //r2En <= 1;
     state <= I_PC_NEXT; 
-    cycleCount <= 2;
+    cycleCount <= 4;
 end
 
 else if(instruction == INCS)
@@ -347,7 +347,7 @@ begin
     //r1En <= 1;
     //r2En <= 1;
     state <= I_PC_NEXT;
-    cycleCount <= 2;
+    cycleCount <= 4;
 end
 
 else if(instruction == DECS)
@@ -356,7 +356,7 @@ begin
     //r1En <= 1;
     //r2En <= 1;
     state <= I_PC_NEXT;
-    cycleCount <= 2;
+    cycleCount <= 4;
 end
 
 else if(instruction == ROLS)
@@ -365,7 +365,7 @@ begin
     //r1En <= 1;
     //r2En <= 1;
     state <= I_PC_NEXT;
-    cycleCount <= 2;
+    cycleCount <= 4;
 end
 
 else if(instruction == RORS)
@@ -374,7 +374,7 @@ begin
     //r1En <= 1;
     //r2En <= 1;
     state <= I_PC_NEXT;
-    cycleCount <= 2;
+    cycleCount <= 4;
 end 
 
 else if(instruction == MULS)
@@ -396,3 +396,10 @@ begin
         state <= I_PC_NEXT;
     end
 end
+
+else if(instruction == CMPS)
+begin
+    aluRun <= 0;
+    state <= I_PC_NEXT;
+    cycleCount <= 0;
+end 

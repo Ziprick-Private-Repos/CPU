@@ -71,4 +71,5 @@ localparam[7:0]
     ROLS    = 8'h93,
     RORS    = 8'h94,
     MULS    = 8'h95,
-    DIVS    = 8'h96;
+    DIVS    = 8'h96,
+    CMPS    = 8'h97;

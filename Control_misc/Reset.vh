@@ -29,3 +29,4 @@ overflowFlag <= 0;
 divZero <= 0;
 aluCycle <= 0;
 aluRun <= 0;
+addressLinesOutBuff <= 0;

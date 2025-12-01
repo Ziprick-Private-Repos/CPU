@@ -22,9 +22,9 @@ module Test;
 
     initial begin
     $dumpfile("test.vcd");
-
-    for(i = 0; i <= 4096; i += 1)
-        $dumpvars(0, Test, Test.uut.memory[i]);
+    $dumpvars(0, Test);
+        //for(i = 0; i <= 4096; i += 1)
+            //$dumpvars(0, Test, Test.uut.memory[i]);
         rst = 1;
         #10;
         rst = 0;

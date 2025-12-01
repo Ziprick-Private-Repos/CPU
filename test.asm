@@ -4,9 +4,16 @@ offset @512
 Start:
 	lod #2
 	mov r4,r1
+	lod #$0
+	mov r2,r1
 	lod #1
-	adds
+	divs
+	cmps
+	bgr LoopForever
 	halt
+
+LoopForever:
+	bra LoopForever
 
 ;	ssfp
 ;	bra Main

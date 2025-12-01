@@ -1,25 +1,19 @@
 if(cycleCount == 4)
 begin
+    //buffer time, for accumulator to finish processing
+
+    cycleCount <= cycleCount - 1;
+end
+
+else if(cycleCount == 3)
+begin
     if(instruction == ADDS)
     begin
         tmpReg <= accumOutS[15:8];
         r1En <= 1;
-        $write("test");
     end
-end
 
-if(cycleCount == 3)
-begin
-    if(instruction == ADDS)
-    begin
-        r1En <= 0;
-    end
-end
-
-if(cycleCount == 2)
-begin
-
-    if(instruction == SUBS)
+    else if(instruction == SUBS)
     begin
         tmpReg <= accumOutS[15:8];
         r1En <= 1;
@@ -59,6 +53,59 @@ begin
     begin
         tmpReg <= remainderS[15:8];
         r3En <= 1;
+    end
+
+    cycleCount <= cycleCount - 1;
+end
+
+else if(cycleCount == 2)
+begin
+    if(instruction == ADDS)
+    begin
+        tmpReg <= accumOutS[15:8];
+        r1En <= 0;
+    end
+
+    else if(instruction == SUBS)
+    begin
+        tmpReg <= accumOutS[15:8];
+        r1En <= 0;
+    end
+
+    else if(instruction == INCS)
+    begin
+        tmpReg <= accumOutS[15:8];
+        r1En <= 0;
+    end
+    
+    else if(instruction == DECS)
+    begin
+        tmpReg <= accumOutS[15:8];
+        r1En <= 0;
+    end
+
+    else if(instruction == ROLS)
+    begin
+        tmpReg <= accumOutS[15:8];
+        r1En <= 0;
+    end
+
+    else if(instruction == RORS)
+    begin
+        tmpReg <= accumOutS[15:8];
+        r1En <= 0;
+    end
+    
+    /*else if(instruction == MULS)
+    begin
+        tmpReg <= accumOutS[15:8];
+        r1En <= 1;
+    end*/
+    
+    else if(instruction == DIVS)
+    begin
+        tmpReg <= remainderS[15:8];
+        r3En <= 0;
     end
 
     cycleCount <= cycleCount - 1;
@@ -183,7 +230,7 @@ begin
 
         BNE:
         begin
-            if(eqFlag == 0)
+            if(eqFlagBus == 0)
                 pc <= addressLinesOutBuff;
 
             else
@@ -192,7 +239,7 @@ begin
 
         BEQ:
         begin
-            if(eqFlag)
+            if(eqFlagBus)
                 pc <= addressLinesOutBuff;
 
             else
@@ -201,7 +248,7 @@ begin
 
         BGR:
         begin
-            if(greaterFlag)
+            if(greaterFlagBus)
                 pc <= addressLinesOutBuff;
 
             else
@@ -326,7 +373,7 @@ begin
 
         BRZ:
         begin
-            if(zeroFlag)
+            if(zeroFlagBus)
                 pc <= addressLinesOutBuff;
 
             else
@@ -667,6 +714,11 @@ begin
             pc <= pc + 1;
         end
 
+        CMPS:
+        begin
+            tmpReg <= accumOut;
+            pc <= pc + 1;
+        end
         /*CMPI:
         begin
             tmpReg <= accumOut;

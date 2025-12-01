@@ -381,6 +381,12 @@ begin
     state <= I_ACCESS_REG_WRITE;
 end
 
+else if(instruction == CMPS)
+begin
+    aluRun <= 1;
+    state <= I_ACCESS_REG_WRITE;
+end
+
 /*else if(instruction == CMPI)
 begin
     if(cycleCount == 4)

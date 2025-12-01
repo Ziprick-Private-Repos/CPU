@@ -59,6 +59,8 @@ output reg divZero);
 				cycleCnt <= cycle;
 				dividend <= regA;
 				divisor <= regB;
+				dividendS <= regS0;
+				divisorS <= regS1;
 				divDone <= 0;
 			end
 
@@ -257,14 +259,14 @@ output reg divZero);
 					8'b1001_0110: //DIVS
 					begin
 						//regA == dividend, regB == divisor
-						if(divisor == 0) //div by zero
+						if(divisorS == 0) //div by zero
 						begin
 
 						end
 
 						else
 						begin
-							if(dividend >= divisor)
+							if(dividendS >= divisorS)
 							begin
 								dividendS <= dividendS - divisorS;
 								quotientS <= quotientS + 1;
@@ -277,6 +279,25 @@ output reg divZero);
 								remainderS <= dividendS;
 							end
 						end
+					end
+
+					8'b1001_0111: //cmps
+					begin
+						accumulator <= regS0;
+						if(regS0 > regS1)
+							greaterFlag <= 1;
+
+						else
+							greaterFlag <= 0;
+			
+						if(regS0 == regS1)
+							eqFlag <= 1;
+
+						else
+							eqFlag <= 0;
+
+						if(regS0 == 0)
+							zeroFlag <= 1;
 					end
 				endcase
 			end	

@@ -45,7 +45,7 @@ case(instruction)
 
     BNE:
     begin
-        if(eqFlag == 0)
+        if(eqFlagBus == 0)
             state <= I_ACCESS_MEM_READ;
 
         else
@@ -62,7 +62,7 @@ case(instruction)
 
     BEQ:
     begin
-        if(eqFlag)
+        if(eqFlagBus)
             state <= I_ACCESS_MEM_READ;
 
         else
@@ -79,7 +79,7 @@ case(instruction)
 
     BGR:
     begin
-        if(greaterFlag)
+        if(greaterFlagBus)
             state <= I_ACCESS_MEM_READ;
 
         else
@@ -218,7 +218,7 @@ case(instruction)
 
     BRZ:
     begin
-        if(zeroFlag)
+        if(zeroFlagBus)
             state <= I_ACCESS_MEM_READ;
 
         else
@@ -587,6 +587,15 @@ case(instruction)
     begin
         //aluCycle <= 255; //max cycles, will stop earlier based on aluDivDone line
         state <= I_ACCESS_ALU;
+        addressOutBuff <= pc + 1;
+        //memReadWrite <= ADDR_MODE_RD;
+    end
+
+    CMPS:
+    begin
+        aluCycle <= 1;
+        state <= I_ACCESS_ALU;
+        //cycleCount <= 4;
         addressOutBuff <= pc + 1;
         //memReadWrite <= ADDR_MODE_RD;
     end

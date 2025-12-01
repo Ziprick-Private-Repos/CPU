@@ -82,10 +82,10 @@ module Control(input wire clk, input wire rstIn,
     reg [23:0]addressLinesOutBuff;
 
     //ALU ACCESS
-    reg greaterFlag;
-    reg zeroFlag; 
-    reg eqFlag;
-    reg overflowFlag;
+    reg greaterFlag; //flag register, stores state before being overwritten, see Access_alu.vh
+    reg zeroFlag;    //
+    reg eqFlag;      //
+    reg overflowFlag;//
     reg srFlag;
     reg divZero;
     reg [15:0]aluCycle;
@@ -149,6 +149,11 @@ module Control(input wire clk, input wire rstIn,
                 begin
                     cycleCount <= 1; //delay added to make sure all memory/registers have finished writing
                     state <= I_FETCH;
+
+                    r1En <= 0;    
+                    r2En <= 0;
+                    r3En <= 0;
+                    r4En <= 0;
                 end
 
                 I_FETCH:
@@ -160,11 +165,6 @@ module Control(input wire clk, input wire rstIn,
 
                     else
                     begin
-                        r1En <= 0;    
-                        r2En <= 0;
-                        r3En <= 0;
-                        r4En <= 0;
-
                         if(intLock && disableInt == 1'b0)
                         begin
                             //push pc
