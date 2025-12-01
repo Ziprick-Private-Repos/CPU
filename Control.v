@@ -6,7 +6,10 @@ module Control(input wire clk, input wire rstIn,
     output reg [1:0]memReadWrite,
     output reg [7:0]toDataBus,
     input wire [7:0]dataIn,
-    input wire [3:0]hardInterrupt);
+    input wire [3:0]hardInterrupt,
+    output wire [23:0]pcOut);
+
+    assign pcOut = pc;
 
     //stack
     localparam DEFAULT_STACK_TOP_ADDRESS = 16'd3000; //after port out space

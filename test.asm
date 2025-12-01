@@ -1,22 +1,11 @@
 org $0
-offset @512
+offset @0
 
-lod #$1
-mov r4,r1
-lod #$ff
+lod #1
+mov r2,r1
+lod #$b8
+
 Start:
-	sub r4
-	;call Delay
-	;lod #0
-	;call Delay
-	bra Start
-
-;Delay:
-	;pusha
-	;lod #0
-;.Loop:
-	;inc
-	;cmp r4
-	;bne Delay.Loop
-	;popa
-	;rts
+	sub r2
+	;bra Start
+	halt

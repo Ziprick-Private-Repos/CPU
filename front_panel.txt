@@ -1,0 +1,7 @@
+Front panel programming interface
+
+halt switch, program switch, reset switch, data input (connected to data lines), address input (connected to address lines)
+
+halt toggle pauses execution
+program sets current address to data
+reset sets pc back to start address

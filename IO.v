@@ -25,6 +25,11 @@ module IO(input wire clk, input wire rst);
     localparam PORTA = 24'hFFFFFA;
     localparam PORTB = 24'hFFFFFB;
 
+    wire [23:0]pc;
+    wire [7:0]data;
+    assign data = pc[7:0];
+    SevenSegDisp segDisp(.clk(clk), .rst(rst), .data(pc[7:0]));
+
     //inout wire [7:0]portA, inout wire [7:0]portB,
     //input wire [3:0]hardInterrupt);
     wire [23:0]address;
@@ -269,5 +274,6 @@ module IO(input wire clk, input wire rst);
     .memReadWrite(memReadWrite),
     .toDataBus(dataOut),
     .dataIn(dataIn),
-    .hardInterrupt(hardInterrupt));
+    .hardInterrupt(hardInterrupt),
+    .pcOut(pc));
 endmodule
