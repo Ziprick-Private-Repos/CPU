@@ -2,6 +2,7 @@ if(instruction == MOV)
 begin
     memReadWrite <= ADDR_MODE_RD;
     addressOutBuff <= pc + 1;
+    cycleCount <= 1;
     state <= I_ACCESS_REG_READ;
 end
 

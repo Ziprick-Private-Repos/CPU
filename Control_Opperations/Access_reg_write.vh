@@ -77,10 +77,18 @@ end
 
 else if(instruction == LOD)
 begin
-    r1En <= 1;
-    tmpReg <= dataIn;
-    state <= I_PC_NEXT;
-    cycleCount <= 1;
+    if(cycleCount == 1)
+    begin
+        cycleCount <= cycleCount - 1;
+    end
+
+    else
+    begin
+        r1En <= 1;
+        tmpReg <= dataIn;
+        state <= I_PC_NEXT;
+        cycleCount <= 1;
+    end
 end
 
 else if(instruction == LDM)
@@ -234,11 +242,6 @@ begin
     cycleCount <= 1;
 end
 
-else if(instruction == CMP)
-begin
-    
-end
-
 else if(instruction == NOT)
 begin
     aluRun <= 0;
@@ -252,7 +255,7 @@ begin
     aluRun <= 0;
     r1En <= 1;
     state <= I_PC_NEXT; 
-    cycleCount <= 1;
+    cycleCount <= 2;
 end
 
 else if(instruction == ADD)

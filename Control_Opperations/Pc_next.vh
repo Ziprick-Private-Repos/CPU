@@ -13,6 +13,24 @@ begin
         r1En <= 1;
     end
 
+<<<<<<< HEAD
+=======
+if(cycleCount == 3)
+begin
+    if(instruction == ADDS)
+    begin
+        r1En <= 0;
+    end
+end
+
+if(cycleCount == 2)
+begin
+    if(instruction == XOR)
+    begin
+        tmpReg <= accumOut;
+    end
+
+>>>>>>> 9f674d08e67f18741919f40807e1d20b45181972
     else if(instruction == SUBS)
     begin
         tmpReg <= accumOutS[15:8];
@@ -113,7 +131,12 @@ end
 
 else if(cycleCount == 1)
 begin
-    if(instruction == ADDS)
+    if(instruction == LOD)
+    begin
+        r1En <= 0;
+    end
+
+    else if(instruction == ADDS)
     begin
         tmpReg <= accumOutS[7:0];
         r2En <= 1;
@@ -163,6 +186,11 @@ begin
         //tmpReg <= accumOutS[7:0];
         //r2En <= 1;
     end
+
+    else if(instruction == XOR)
+    begin
+        r1En <= 0;
+    end
     
     else if(instruction == DIV)
     begin
@@ -191,6 +219,7 @@ begin
     addressOutBuff <= pc;
     state <= I_IDLE;
     cycleCount <= 0;
+    memReadWrite <= ADDR_MODE_PC;
 
     case(instruction)
         NOP:
@@ -520,7 +549,7 @@ begin
 
         XOR:
         begin
-            tmpReg <= accumOut;
+            r1En <= 0;
             pc <= pc + 2;
         end
 

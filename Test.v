@@ -29,7 +29,7 @@ module Test;
         #10;
         rst = 0;
 
-        #2200;
+        #22000;
     $finish;
     end
 endmodule
