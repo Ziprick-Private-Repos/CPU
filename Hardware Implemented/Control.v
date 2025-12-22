@@ -2133,25 +2133,25 @@ module Control(input wire clk, input wire rstIn,
                         if(aluRegSel[1:0] == 2'b00)
                         begin
                             tmpReg <= r1Out;
-                            aluCycle <= r1Out;
+                            aluCycle <= r1Out - 1;
                         end
 
                         else if(aluRegSel[1:0] == 2'b01)
                         begin
                             tmpReg <= r2Out;
-                            aluCycle <= r2Out;
+                            aluCycle <= r2Out - 1;
                         end
 
                         else if(aluRegSel[1:0] == 2'b10)
                         begin
                             tmpReg <= r3Out;
-                            aluCycle <= r3Out;
+                            aluCycle <= r3Out - 1;
                         end
 
                         else if(aluRegSel[1:0] == 2'b11)
                         begin
                             tmpReg <= r4Out;
-                            aluCycle <= r4Out;
+                            aluCycle <= r4Out - 1;
                         end
 
                         zeroFlag <= zeroFlagBus;
