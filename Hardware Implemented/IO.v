@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 `default_nettype none
     
-module IO(input wire clkIn, input wire rst, output wire [7:0]data, output wire [3:0]led, output wire [7:0]seg, output wire [5:0]disp);
+module IO(input wire clkIn, input wire rst, output wire [7:0]data, output wire [3:0]led, output wire [7:0]seg, output wire [5:0]disp, input wire [3:0]hardInterrupt);
     //localparam ColorByte = 24'hFFFFFE;
     localparam GFXMode = 24'hFFFFFF;
 
@@ -29,11 +29,11 @@ module IO(input wire clkIn, input wire rst, output wire [7:0]data, output wire [
     reg clk = 0;
 
     //inout wire [7:0]portA, inout wire [7:0]portB,
-    //input wire [3:0]hardInterrupt);
-    wire [23:0]address;
-    reg [3:0]hardInterrupt = 0;
 
-    wire [7:0]memory[0:100];
+    wire [23:0]address;
+    //reg [3:0]hardInterrupt = 0;
+
+    reg [7:0]memory[0:3000];
 
     assign led = 4'b1111;
     
@@ -42,19 +42,6 @@ module IO(input wire clkIn, input wire rst, output wire [7:0]data, output wire [
     wire [7:0]r2TestOut;
     wire [7:0]accum;
     assign data = accum;
-    
-    //memory[0] =
-    //memory[1] = 
-    /*integer i;
-
-    initial begin
-        for(i = 0; i < 65536; i = i + 1)
-        begin      
-            memory[i] = 8'hzz;
-        end
-
-        $readmemb("data.txt", memory);
-    end*/
     
     //memory modes
     localparam [1:0]
@@ -89,56 +76,18 @@ module IO(input wire clkIn, input wire rst, output wire [7:0]data, output wire [
     //port out buffer
     reg [7:0]portAOut;
     reg [7:0]portBOut;
-    wire [7:0]portA = 0;
-    wire [7:0]portB = 0;
+    wire [7:0]portA;
+    wire [7:0]portB;
 
-    //assign portA = address == 24'hFFFFFA && memReadWrite == ADDR_MODE_RD ? 8'bz : portAOut;
-    //assign portB = address == 24'hFFFFFB && memReadWrite == ADDR_MODE_RD ? 8'bz : portBOut;
+    assign portA = address == 24'hFFFFFA && memReadWrite == ADDR_MODE_RD ? 8'bz : portAOut;
+    assign portB = address == 24'hFFFFFB && memReadWrite == ADDR_MODE_RD ? 8'bz : portBOut;
 
-    assign wrt = memReadWrite[1];
-
-    assign memory[0] = 8'h03;
-    assign memory[1] = 8'h01;
-
-    assign memory[2] = 8'h01;
-    assign memory[3] = 8'h04;
-
-    assign memory[4] = 8'h03;
-    assign memory[5] = 8'hb8;
-
-    assign memory[6] = 8'h88;
-    assign memory[7] = 8'h01;
-    assign memory[8] = 8'h48;
-    assign memory[9] = 8'h06;
-    assign memory[10] = 8'h00;
-    assign memory[11] = 8'h00;
-
-    /*assign memory[6] = 8'h28;
-    assign memory[7] = 8'h14;
-    assign memory[8] = 8'h02;
-    assign memory[9] = 8'h00;
-    assign memory[10] = 8'h03;
-    assign memory[11] = 8'h00;
-    assign memory[12] = 8'h28;
-    assign memory[13] = 8'h14;
-    assign memory[14] = 8'h02;
-    assign memory[15] = 8'h0;
-    assign memory[16] = 8'h48;
-    assign memory[17] = 8'h04;
-    assign memory[18] = 8'h02;
-    assign memory[19] = 8'h0;
-    assign memory[20] = 8'h10;
-    assign memory[21] = 8'h03;
-    assign memory[22] = 8'h00;
-    assign memory[23] = 8'h89;
-    assign memory[24] = 8'h84;
-    assign memory[25] = 8'h03;
-    assign memory[26] = 8'h05;
-    assign memory[27] = 8'h17;
-    assign memory[28] = 8'h02;
-    assign memory[29] = 8'h00;
-    assign memory[30] = 8'h11;
-    assign memory[31] = 8'h38;*/
+    //this should stay 0 (or not write) when using memory mapped registers like portA or other hardware
+    assign wrt = memReadWrite[1] && (address != PORTA && address != PORTB && address < 24'hFF0000) ? 1 : 0;
+    //if it isn't it will overwrite other regions of memory in the future on real hardware
+    //*HARDWARE MAPPED I/O REGION* 0xFF_00_00 - 0xFF_FF_FF
+    //*ROM* <= 0x1_00_00
+    //*MEM* > 0xFF_FF
 
     SevenSegDisp segDisp(.clk(clkIn), .rst(rst), .data2(pc[7:0]), .data1(r2TestOut), .data0(r1TestOut), .seg(seg), .disp(disp));
 
@@ -154,8 +103,8 @@ module IO(input wire clkIn, input wire rst, output wire [7:0]data, output wire [
         //begin
         clkCnt <= clkCnt + 1;
 
-        if(clkCnt >= 32'd10_000_000)
-        //if(clkCnt >= 1)
+        //if(clkCnt >= 32'd10_000_000)
+        if(clkCnt >= 2)
         begin
             clk <= ~clk;
             clkCnt <= 0;
@@ -164,7 +113,7 @@ module IO(input wire clkIn, input wire rst, output wire [7:0]data, output wire [
     end
 
     //assign dataInBuff = memory[address];
-    always @(posedge clk)
+    always @(posedge clkIn)
     begin
         if(rst == 0)
         begin
@@ -184,6 +133,74 @@ module IO(input wire clkIn, input wire rst, output wire [7:0]data, output wire [
             soundActiveReg <= 0;
             soundInstrumentReg <= 0;
             soundDurationReg <= 0;
+
+            /*memory[0] <= 8'h03;
+            memory[1] <= 8'h00;
+            memory[2] <= 8'h00;
+            memory[3] <= 8'h28;
+            memory[4] <= 8'h0b;
+            memory[5] <= 8'h00;
+            memory[6] <= 8'h00;
+            memory[7] <= 8'h48;
+            memory[8] <= 8'h02;
+            memory[9] <= 8'h00;
+            memory[10] <= 8'h00;
+            memory[11] <= 8'h89;
+            memory[12] <= 8'h38;*/
+
+            memory[0] <= 8'h3;
+            memory[1] <= 8'hb6;
+            memory[2] <= 8'h01;
+            memory[3] <= 8'hc;
+            memory[4] <= 8'h3;
+            memory[5] <= 8'h1;
+            memory[6] <= 8'h1;
+            memory[7] <= 8'h4;
+            memory[8] <= 8'h3;
+            memory[9] <= 8'hb8;
+            memory[10] <= 8'h88;
+            memory[11] <= 8'h1;
+            memory[12] <= 8'h28;
+            memory[13] <= 8'h25;
+            memory[14] <= 8'h0;
+            memory[15] <= 8'h0;
+            memory[16] <= 8'hf;
+            memory[17] <= 8'h0;
+            memory[18] <= 8'h1;
+            memory[19] <= 8'h2;
+            memory[20] <= 8'h1f;
+            memory[21] <= 8'h0;
+            memory[22] <= 8'h84;
+            memory[23] <= 8'h3;
+            memory[24] <= 8'h6;
+            memory[25] <= 8'h20;
+            memory[26] <= 8'h0;
+            memory[27] <= 8'h0;
+            memory[28] <= 8'h48;
+            memory[29] <= 8'ha;
+            memory[30] <= 8'h0;
+            memory[31] <= 8'h0;
+            memory[32] <= 8'h4;
+            memory[33] <= 8'hfa;
+            memory[34] <= 8'hff;
+            memory[35] <= 8'hff;
+            memory[36] <= 8'h18;
+            memory[37] <= 8'hf;
+            memory[38] <= 8'h0;
+            memory[39] <= 8'hf;
+            memory[40] <= 8'h1;
+            memory[41] <= 8'h1;
+            memory[42] <= 8'h2;
+            memory[43] <= 8'h89;
+            memory[44] <= 8'h1;
+            memory[45] <= 8'h8;
+            memory[46] <= 8'h1f;
+            memory[47] <= 8'h1;
+            memory[48] <= 8'h1f;
+            memory[49] <= 8'h0;
+            memory[50] <= 8'h38;
+
+            memory[120] <= 8'h18;
         end
 
         else
@@ -328,8 +345,8 @@ module IO(input wire clkIn, input wire rst, output wire [7:0]data, output wire [
                 //else if (address == ColorByte)
                     //colorByte = dataOut;
 
-                //else
-                //    memory[address] <= dataOut;
+                else
+                    memory[address] <= dataOut;
             end
         end
     end

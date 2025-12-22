@@ -21,13 +21,17 @@ module Control(input wire clk, input wire rstIn,
     //localparam PC_START_ADDRESS_ON_POWER = 24'd512;
 
     //stack
-    localparam DEFAULT_STACK_TOP_ADDRESS = 16'd3000; //after port out space
+    localparam DEFAULT_STACK_TOP_ADDRESS = 16'd2999; //after port out space
 
     //memory modes
     localparam [1:0]
 	ADDR_MODE_RD    = 2'b00, //00 reads address lines (reading 'random' locations)
 	ADDR_MODE_PC    = 2'b01, //01 reads address at pc
 	ADDR_MODE_WRT   = 2'b10; //10 writes to address lines
+
+    parameter INVALID_INSTRUCTION   = 8'h01;
+    parameter DIV_BY_ZERO           = 8'h02;
+    parameter GENERAL_FAULT         = 8'hff;
 
     //0x1E00
     //external hardware int pointers
@@ -48,21 +52,21 @@ module Control(input wire clk, input wire rstIn,
     parameter IRQ_15_ADDR = 24'd112;
 
     //internal exception int pointers
-    parameter INT_1_ADDR = 24'd120;
-    parameter INT_2_ADDR = 24'd128;
-    parameter INT_3_ADDR = 24'd136;
-    parameter INT_4_ADDR = 24'd144;
-    parameter INT_5_ADDR = 24'd152;
-    parameter INT_6_ADDR = 24'd160;
-    parameter INT_7_ADDR = 24'd168;
-    parameter INT_8_ADDR = 24'd176;
-    parameter INT_9_ADDR = 24'd184;
-    parameter INT_10_ADDR = 24'd192;
-    parameter INT_11_ADDR = 24'd200;
-    parameter INT_12_ADDR = 24'd208;
-    parameter INT_13_ADDR = 24'd216;
-    parameter INT_14_ADDR = 24'd224;
-    parameter INT_15_ADDR = 24'd232;
+    parameter EXP_1_ADDR = 24'd120;
+    parameter EXP_2_ADDR = 24'd128;
+    parameter EXP_3_ADDR = 24'd136;
+    parameter EXP_4_ADDR = 24'd144;
+    parameter EXP_5_ADDR = 24'd152;
+    parameter EXP_6_ADDR = 24'd160;
+    parameter EXP_7_ADDR = 24'd168;
+    parameter EXP_8_ADDR = 24'd176;
+    parameter EXP_9_ADDR = 24'd184;
+    parameter EXP_10_ADDR = 24'd192;
+    parameter EXP_11_ADDR = 24'd200;
+    parameter EXP_12_ADDR = 24'd208;
+    parameter EXP_13_ADDR = 24'd216;
+    parameter EXP_14_ADDR = 24'd224;
+    parameter EXP_15_ADDR = 24'd232;
 
     //software int call pointers
     parameter SOFT_INT_16_ADDR = 24'd240;
@@ -241,9 +245,10 @@ module Control(input wire clk, input wire rstIn,
 
     //INT HANDLE
     reg [7:0]intNum;
+    reg [7:0]exceptNum;
     wire pEdge;
     reg disableInt;
-    reg [3:0]intLock;
+    reg [7:0]intLock;
     reg sigDelay;
     reg sigDelay1;
 
@@ -266,6 +271,7 @@ module Control(input wire clk, input wire rstIn,
             disableInt <= 0;
             intLock <= 0;
             intNum <= 0;
+            exceptNum <= 0;
             pc <= PC_START_ADDRESS_ON_POWER;
             tmpReg <= 0;
             pushPopRegSel <= 0;
@@ -276,8 +282,8 @@ module Control(input wire clk, input wire rstIn,
             si <= 0;
             di <= 0;
             spr <= 0;
-            stackTop <= 0;
-            stackPointer <= 0;
+            stackTop <= DEFAULT_STACK_TOP_ADDRESS;
+            stackPointer <= DEFAULT_STACK_TOP_ADDRESS;
             cycleCount <= 0;
             state <= I_IDLE;
             memReadWrite <= ADDR_MODE_PC;
@@ -323,8 +329,10 @@ module Control(input wire clk, input wire rstIn,
                         r3En <= 0;
                         r4En <= 0;
 
-                        if(intLock && disableInt == 1'b0)
+                        if((intLock && disableInt == 1'b0) || exceptNum)
                         begin
+                            if(exceptNum)
+                                intLock <= 8'hff;
                             //push pc
                             instruction <= H_INT;
                             state <= I_DECODE;
@@ -699,6 +707,7 @@ module Control(input wire clk, input wire rstIn,
                             retAddr <= pc;
 
                             case(intLock)
+                                //hardware int
                                 4'b0001:
                                     intNum <= 1;
 
@@ -742,7 +751,11 @@ module Control(input wire clk, input wire rstIn,
                                     intNum <= 14;
 
                                 4'b1111:
-                                    intNum <= 15;           
+                                    intNum <= 15;    
+
+                                //exceptions
+                                default:
+                                    intNum <= 7'd15 + exceptNum;
                             endcase
 
                             cycleCount <= 4;
@@ -947,7 +960,9 @@ module Control(input wire clk, input wire rstIn,
 
                         default: //invalid instruction
                         begin
-                            rst <= 1;
+                            exceptNum <= INVALID_INSTRUCTION;
+                            state <= I_IDLE;
+                            //rst <= 1;
                         end
 
                     endcase
@@ -1616,7 +1631,9 @@ module Control(input wire clk, input wire rstIn,
 
                     else if(instruction == H_INT)
                     begin
-                        intNum <= dataIn;
+                        if(exceptNum == 0)
+                            intNum <= dataIn;
+
                         cycleCount <= 4;
                         state <= I_ACCESS_MEM_WRITE;
                     end
@@ -3335,6 +3352,7 @@ module Control(input wire clk, input wire rstIn,
                                 intLock <= 0;
                                 //jump to int handler
                                 case(intNum)
+                                    //hardware int
                                     8'd1:
                                     begin
                                         pc <= IRQ_1_ADDR;
@@ -3408,6 +3426,23 @@ module Control(input wire clk, input wire rstIn,
                                     8'd15:
                                     begin
                                         pc <= IRQ_15_ADDR;
+                                    end
+
+                                    default: //exceptions
+                                    begin
+                                        case(exceptNum)
+                                            INVALID_INSTRUCTION:
+                                            begin
+                                                exceptNum <= 0;
+                                                pc <= EXP_1_ADDR;
+                                            end
+
+                                            DIV_BY_ZERO:
+                                            begin
+                                                exceptNum <= 0;
+                                                pc <= EXP_2_ADDR;
+                                            end
+                                        endcase
                                     end
                                 endcase
                             end
@@ -3533,7 +3568,8 @@ module Control(input wire clk, input wire rstIn,
                             
                             default:
                             begin
-                                rst <= 1;
+                                exceptNum <= 1; //invalid instruction
+                                //rst <= 1;
                             end
                         endcase   
                     end
