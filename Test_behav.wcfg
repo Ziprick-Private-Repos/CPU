@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Test_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Test" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
+      <ZoomEndTime time="520.001 ns"></ZoomEndTime>
+      <Cursor1Time time="6.500 ns"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="380"></NameColumnWidth>
+      <ValueColumnWidth column_width="162"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="69" />
+   <wvobject fp_name="/Test/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/clkIn" type="logic">
+      <obj_property name="ElementShortName">clkIn</obj_property>
+      <obj_property name="ObjectShortName">clkIn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/clkCnt" type="array">
+      <obj_property name="ElementShortName">clkCnt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">clkCnt[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/data" type="array">
+      <obj_property name="ElementShortName">data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/address" type="array">
+      <obj_property name="ElementShortName">address[23:0]</obj_property>
+      <obj_property name="ObjectShortName">address[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/wrt" type="logic">
+      <obj_property name="ElementShortName">wrt</obj_property>
+      <obj_property name="ObjectShortName">wrt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/portA" type="array">
+      <obj_property name="ElementShortName">portA[7:0]</obj_property>
+      <obj_property name="ObjectShortName">portA[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/portB" type="array">
+      <obj_property name="ElementShortName">portB[7:0]</obj_property>
+      <obj_property name="ObjectShortName">portB[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/drivePortA" type="logic">
+      <obj_property name="ElementShortName">drivePortA</obj_property>
+      <obj_property name="ObjectShortName">drivePortA</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/portA_in" type="array">
+      <obj_property name="ElementShortName">portA_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">portA_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/drivePortB" type="logic">
+      <obj_property name="ElementShortName">drivePortB</obj_property>
+      <obj_property name="ObjectShortName">drivePortB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/portB_in" type="array">
+      <obj_property name="ElementShortName">portB_in[7:0]</obj_property>
+      <obj_property name="ObjectShortName">portB_in[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/hardInterrupt" type="array">
+      <obj_property name="ElementShortName">hardInterrupt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">hardInterrupt[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/dataFromMem" type="array">
+      <obj_property name="ElementShortName">dataFromMem[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dataFromMem[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/dataToMem" type="array">
+      <obj_property name="ElementShortName">dataToMem[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dataToMem[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/addrOut" type="array">
+      <obj_property name="ElementShortName">addrOut[23:0]</obj_property>
+      <obj_property name="ObjectShortName">addrOut[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/memReadWrite" type="array">
+      <obj_property name="ElementShortName">memReadWrite[1:0]</obj_property>
+      <obj_property name="ObjectShortName">memReadWrite[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/toDataBus" type="array">
+      <obj_property name="ElementShortName">toDataBus[7:0]</obj_property>
+      <obj_property name="ObjectShortName">toDataBus[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/hardInterrupt" type="array">
+      <obj_property name="ElementShortName">hardInterrupt[3:0]</obj_property>
+      <obj_property name="ObjectShortName">hardInterrupt[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/cycleCount" type="array">
+      <obj_property name="ElementShortName">cycleCount[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cycleCount[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/si" type="array">
+      <obj_property name="ElementShortName">si[23:0]</obj_property>
+      <obj_property name="ObjectShortName">si[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/di" type="array">
+      <obj_property name="ElementShortName">di[23:0]</obj_property>
+      <obj_property name="ObjectShortName">di[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/spr" type="array">
+      <obj_property name="ElementShortName">spr[23:0]</obj_property>
+      <obj_property name="ObjectShortName">spr[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/stackTop" type="array">
+      <obj_property name="ElementShortName">stackTop[23:0]</obj_property>
+      <obj_property name="ObjectShortName">stackTop[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/stackPointer" type="array">
+      <obj_property name="ElementShortName">stackPointer[23:0]</obj_property>
+      <obj_property name="ObjectShortName">stackPointer[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/uartWrt" type="logic">
+      <obj_property name="ElementShortName">uartWrt</obj_property>
+      <obj_property name="ObjectShortName">uartWrt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/uartRst" type="logic">
+      <obj_property name="ElementShortName">uartRst</obj_property>
+      <obj_property name="ObjectShortName">uartRst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/pc" type="array">
+      <obj_property name="ElementShortName">pc[23:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/aluRegSel" type="array">
+      <obj_property name="ElementShortName">aluRegSel[7:0]</obj_property>
+      <obj_property name="ObjectShortName">aluRegSel[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/pushPopRegSel" type="array">
+      <obj_property name="ElementShortName">pushPopRegSel[7:0]</obj_property>
+      <obj_property name="ObjectShortName">pushPopRegSel[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/accumOut" type="array">
+      <obj_property name="ElementShortName">accumOut[7:0]</obj_property>
+      <obj_property name="ObjectShortName">accumOut[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/remainder" type="array">
+      <obj_property name="ElementShortName">remainder[7:0]</obj_property>
+      <obj_property name="ObjectShortName">remainder[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/retAddr" type="array">
+      <obj_property name="ElementShortName">retAddr[23:0]</obj_property>
+      <obj_property name="ObjectShortName">retAddr[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/addressLinesOutBuff" type="array">
+      <obj_property name="ElementShortName">addressLinesOutBuff[23:0]</obj_property>
+      <obj_property name="ObjectShortName">addressLinesOutBuff[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/greaterFlag" type="logic">
+      <obj_property name="ElementShortName">greaterFlag</obj_property>
+      <obj_property name="ObjectShortName">greaterFlag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/zeroFlag" type="logic">
+      <obj_property name="ElementShortName">zeroFlag</obj_property>
+      <obj_property name="ObjectShortName">zeroFlag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/eqFlag" type="logic">
+      <obj_property name="ElementShortName">eqFlag</obj_property>
+      <obj_property name="ObjectShortName">eqFlag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/overflowFlag" type="logic">
+      <obj_property name="ElementShortName">overflowFlag</obj_property>
+      <obj_property name="ObjectShortName">overflowFlag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/srFlag" type="logic">
+      <obj_property name="ElementShortName">srFlag</obj_property>
+      <obj_property name="ObjectShortName">srFlag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/divZero" type="logic">
+      <obj_property name="ElementShortName">divZero</obj_property>
+      <obj_property name="ObjectShortName">divZero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/aluCycle" type="array">
+      <obj_property name="ElementShortName">aluCycle[7:0]</obj_property>
+      <obj_property name="ObjectShortName">aluCycle[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/aluRun" type="logic">
+      <obj_property name="ElementShortName">aluRun</obj_property>
+      <obj_property name="ObjectShortName">aluRun</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/aluDivDone" type="logic">
+      <obj_property name="ElementShortName">aluDivDone</obj_property>
+      <obj_property name="ObjectShortName">aluDivDone</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/greaterFlagBus" type="logic">
+      <obj_property name="ElementShortName">greaterFlagBus</obj_property>
+      <obj_property name="ObjectShortName">greaterFlagBus</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/zeroFlagBus" type="logic">
+      <obj_property name="ElementShortName">zeroFlagBus</obj_property>
+      <obj_property name="ObjectShortName">zeroFlagBus</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/eqFlagBus" type="logic">
+      <obj_property name="ElementShortName">eqFlagBus</obj_property>
+      <obj_property name="ObjectShortName">eqFlagBus</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/overflowFlagBus" type="logic">
+      <obj_property name="ElementShortName">overflowFlagBus</obj_property>
+      <obj_property name="ObjectShortName">overflowFlagBus</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/divZeroBus" type="logic">
+      <obj_property name="ElementShortName">divZeroBus</obj_property>
+      <obj_property name="ObjectShortName">divZeroBus</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/state" type="array">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/instruction" type="array">
+      <obj_property name="ElementShortName">instruction[7:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/dataIn" type="array">
+      <obj_property name="ElementShortName">dataIn[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dataIn[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/tmpReg" type="array">
+      <obj_property name="ElementShortName">tmpReg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tmpReg[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/r1Out" type="array">
+      <obj_property name="ElementShortName">r1Out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r1Out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/r2Out" type="array">
+      <obj_property name="ElementShortName">r2Out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r2Out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/r3Out" type="array">
+      <obj_property name="ElementShortName">r3Out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r3Out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/r4Out" type="array">
+      <obj_property name="ElementShortName">r4Out[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r4Out[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/addressOutBuff" type="array">
+      <obj_property name="ElementShortName">addressOutBuff[23:0]</obj_property>
+      <obj_property name="ObjectShortName">addressOutBuff[23:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/r1En" type="logic">
+      <obj_property name="ElementShortName">r1En</obj_property>
+      <obj_property name="ObjectShortName">r1En</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/r2En" type="logic">
+      <obj_property name="ElementShortName">r2En</obj_property>
+      <obj_property name="ObjectShortName">r2En</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/r3En" type="logic">
+      <obj_property name="ElementShortName">r3En</obj_property>
+      <obj_property name="ObjectShortName">r3En</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/r4En" type="logic">
+      <obj_property name="ElementShortName">r4En</obj_property>
+      <obj_property name="ObjectShortName">r4En</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/swapReg" type="array">
+      <obj_property name="ElementShortName">swapReg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">swapReg[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/intNum" type="array">
+      <obj_property name="ElementShortName">intNum[7:0]</obj_property>
+      <obj_property name="ObjectShortName">intNum[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/pEdge" type="logic">
+      <obj_property name="ElementShortName">pEdge</obj_property>
+      <obj_property name="ObjectShortName">pEdge</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/disableInt" type="logic">
+      <obj_property name="ElementShortName">disableInt</obj_property>
+      <obj_property name="ObjectShortName">disableInt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/intLock" type="array">
+      <obj_property name="ElementShortName">intLock[3:0]</obj_property>
+      <obj_property name="ObjectShortName">intLock[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/sigDelay" type="logic">
+      <obj_property name="ElementShortName">sigDelay</obj_property>
+      <obj_property name="ObjectShortName">sigDelay</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Test/uut/control/sigDelay1" type="logic">
+      <obj_property name="ElementShortName">sigDelay1</obj_property>
+      <obj_property name="ObjectShortName">sigDelay1</obj_property>
+   </wvobject>
+</wave_config>

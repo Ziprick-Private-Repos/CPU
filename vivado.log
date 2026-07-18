@@ -1,0 +1,503 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sun May 24 15:41:31 2026
+# Process ID: 11704
+# Current directory: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15556 C:\Users\jmzip\OneDrive\Coding-Projects\Verilog\CPU\CPU.xpr
+# Log file: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/vivado.log
+# Journal file: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU\vivado.jou
+# Running On: Iron-Man, OS: Windows, CPU Frequency: 3503 MHz, CPU Physical cores: 4, Host memory: 33237 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.xpr
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kc705:part0:1.6 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kc705/1.6/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.6 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.6/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu105:part0:1.7 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu105/1.7/board.xml as part xcku040-ffva1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:kcu1500:part0:1.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kcu1500/1.2/board.xml as part xcku115-flvb2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/2.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:3.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/3.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.0/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190_newl:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190_newl/production/1.1/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.6 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.6/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu108:part0:1.7 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu108/1.7/board.xml as part xcvu095-ffva2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu110:part0:1.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu110/1.4/board.xml as part xcvu190-flgc2104-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.0/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.3 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.3/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu118:part0:2.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu118/2.4/board.xml as part xcvu9p-flga2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu129:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu129/production/1.0/board.xml as part xcvu29p-fsga2577-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vcu1525:part0:1.3 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vcu1525/1.3/board.xml as part xcvu9p-fsgd2104-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/production/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_a/1.1/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.0/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es_revb:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/rev_b/1.1/board.xml as part xcve2802-vsvh1760-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_mpsoc:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_mpsoc/1.0/board.xml as part xczu19eg-ffvd1760-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vermeo_t1_rfsoc:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vermeo_t1_rfsoc/1.0/board.xml as part xczu21dr-ffvd1156-2l-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/production/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.1/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:2.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/2.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180:part0:3.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180/production/3.2/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.0/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vmk180_newl:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vmk180_newl/production/1.1/board.xml as part xcvm1802-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.1/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120:part0:1.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/production/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180:part0:1.1 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/production/1.1/board.xml as part xcvp1802-lsvc4072-2mp-e-s specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zc706:part0:1.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zc706/1.4/board.xml as part xc7z045ffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.3 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.3/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu102:part0:3.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu102/3.4/board.xml as part xczu9eg-ffvb1156-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.2 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.2/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.3 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.3/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu111:part0:1.4 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu111/1.4/board.xml as part xczu28dr-ffvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1275/1.0/board.xml as part xczu29dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2023.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.2/data/ip'.
+open_project: Time (s): cpu = 00:00:42 ; elapsed = 00:00:19 . Memory (MB): peak = 1554.176 ; gain = 433.332
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Mon May 25 15:31:13 2026] Launched synth_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/synth_1/runme.log
+[Mon May 25 15:31:13 2026] Launched impl_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+ECHO is off.
+ECHO is off.
+Cannot send datagram packet to /10.5.0.255
+OSError: [WinError 10022] An invalid argument was supplied
+  File "chipscopy\tcf\services\local\LocatorService.py", line 705, in __sendDatagramPacket
+
+
+******** Xilinx cs_server v2023.2.0
+  ****** Build date   : Oct 09 2023-21:01:56
+    **** Build number : 2023.2.1696910516
+      ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+      ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210512180081
+set_property PROGRAM.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.bit} [get_hw_devices xc7a35t_0]
+set_property PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+WARNING: [Labtools 27-3222] Mismatch between the design programmed into the device xc7a35t (JTAG device index = 0) and the probes file(s) C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx.
+ The hw_probe  in the probes file has port index 7. This port does not exist in the ILA core at location (uuid_23E7D65A79BC59F7BC47406C1714DFAE).
+set_property PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq24'hXX_XXXX [get_hw_probes control/mar -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes enBtnDbg -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-May-25 15:39:51
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-May-25 15:40:03
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Mon May 25 15:45:40 2026] Launched synth_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Mon May 25 15:47:46 2026] Launched synth_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Mon May 25 15:49:09 2026] Launched synth_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Mon May 25 15:51:09 2026] Launched synth_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Mon May 25 15:52:12 2026] Launched synth_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+INFO: [Device 21-403] Loading part xc7a35tfgg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 2076.461 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 220 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2023.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc]
+CRITICAL WARNING: [Common 17-163] Missing value for option 'period', please type 'create_clock -help' for usage info. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:5]
+WARNING: [Vivado 12-584] No ports matched 'led[0]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:8]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:8]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[1]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[2]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[3]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'prgmSwitch'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:63]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:63]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'haltSwitch'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:64]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gotoSwitch'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:387]
+WARNING: [Vivado 12-507] No nets matched 'clk'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:457]
+CRITICAL WARNING: [Common 17-162] Invalid option value specified for '-nets'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:457]
+Finished Parsing XDC File [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2143.105 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  FDCP => FDCP (FDCE, FDPE, LDCE, LUT3, VCC): 1 instance 
+  IOBUF => IOBUF (IBUF, OBUFT): 8 instances
+
+open_run: Time (s): cpu = 00:00:20 ; elapsed = 00:00:13 . Memory (MB): peak = 2271.738 ; gain = 195.277
+delete_debug_core [get_debug_cores {u_ila_0 }]
+save_constraints
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 2283.699 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 220 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2023.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc]
+CRITICAL WARNING: [Common 17-163] Missing value for option 'period', please type 'create_clock -help' for usage info. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:5]
+WARNING: [Vivado 12-584] No ports matched 'led[0]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:8]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:8]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[1]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[2]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[3]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'prgmSwitch'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:77]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:77]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'haltSwitch'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:78]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:78]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gotoSwitch'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:79]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:79]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:401]
+WARNING: [Vivado 12-507] No nets matched 'clk'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:406]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:406]
+Finished Parsing XDC File [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2283.699 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  FDCP => FDCP (FDCE, FDPE, LDCE, LUT3, VCC): 1 instance 
+  IOBUF => IOBUF (IBUF, OBUFT): 8 instances
+
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 4096 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+connect_debug_port u_ila_0/clk [get_nets [list clkIn_IBUF_BUFG ]]
+set_property port_width 24 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {control/mar[0]} {control/mar[1]} {control/mar[2]} {control/mar[3]} {control/mar[4]} {control/mar[5]} {control/mar[6]} {control/mar[7]} {control/mar[8]} {control/mar[9]} {control/mar[10]} {control/mar[11]} {control/mar[12]} {control/mar[13]} {control/mar[14]} {control/mar[15]} {control/mar[16]} {control/mar[17]} {control/mar[18]} {control/mar[19]} {control/mar[20]} {control/mar[21]} {control/mar[22]} {control/mar[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 4 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {control/state[0]} {control/state[1]} {control/state[2]} {control/state[3]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {control/r1Out[0]} {control/r1Out[1]} {control/r1Out[2]} {control/r1Out[3]} {control/r1Out[4]} {control/r1Out[5]} {control/r1Out[6]} {control/r1Out[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe3]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {control/instruction[0]} {control/instruction[1]} {control/instruction[2]} {control/instruction[3]} {control/instruction[4]} {control/instruction[5]} {control/instruction[6]} {control/instruction[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe4]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {control/exceptNum[0]} {control/exceptNum[1]} {control/exceptNum[2]} {control/exceptNum[3]} {control/exceptNum[4]} {control/exceptNum[5]} {control/exceptNum[6]} {control/exceptNum[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe5]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {control/mdr[0]} {control/mdr[1]} {control/mdr[2]} {control/mdr[3]} {control/mdr[4]} {control/mdr[5]} {control/mdr[6]} {control/mdr[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 16 [get_debug_ports u_ila_0/probe6]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {control/cycleCount[0]} {control/cycleCount[1]} {control/cycleCount[2]} {control/cycleCount[3]} {control/cycleCount[4]} {control/cycleCount[5]} {control/cycleCount[6]} {control/cycleCount[7]} {control/cycleCount[8]} {control/cycleCount[9]} {control/cycleCount[10]} {control/cycleCount[11]} {control/cycleCount[12]} {control/cycleCount[13]} {control/cycleCount[14]} {control/cycleCount[15]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe7]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {dataInDbg[0]} {dataInDbg[1]} {dataInDbg[2]} {dataInDbg[3]} {dataInDbg[4]} {dataInDbg[5]} {dataInDbg[6]} {dataInDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe8]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {pc[0]} {pc[1]} {pc[2]} {pc[3]} {pc[4]} {pc[5]} {pc[6]} {pc[7]} {pc[8]} {pc[9]} {pc[10]} {pc[11]} {pc[12]} {pc[13]} {pc[14]} {pc[15]} {pc[16]} {pc[17]} {pc[18]} {pc[19]} {pc[20]} {pc[21]} {pc[22]} {pc[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe9]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list {dataDbg[0]} {dataDbg[1]} {dataDbg[2]} {dataDbg[3]} {dataDbg[4]} {dataDbg[5]} {dataDbg[6]} {dataDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe10]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list {dataOutDbg[0]} {dataOutDbg[1]} {dataOutDbg[2]} {dataOutDbg[3]} {dataOutDbg[4]} {dataOutDbg[5]} {dataOutDbg[6]} {dataOutDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe11]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list {clkCnt[0]} {clkCnt[1]} {clkCnt[2]} {clkCnt[3]} {clkCnt[4]} {clkCnt[5]} {clkCnt[6]} {clkCnt[7]} {clkCnt[8]} {clkCnt[9]} {clkCnt[10]} {clkCnt[11]} {clkCnt[12]} {clkCnt[13]} {clkCnt[14]} {clkCnt[15]} {clkCnt[16]} {clkCnt[17]} {clkCnt[18]} {clkCnt[19]} {clkCnt[20]} {clkCnt[21]} {clkCnt[22]} {clkCnt[23]} {clkCnt[24]} {clkCnt[25]} {clkCnt[26]} {clkCnt[27]} {clkCnt[28]} {clkCnt[29]} {clkCnt[30]} {clkCnt[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe12]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe12]
+connect_debug_port u_ila_0/probe12 [get_nets [list {addressOutDbg[0]} {addressOutDbg[1]} {addressOutDbg[2]} {addressOutDbg[3]} {addressOutDbg[4]} {addressOutDbg[5]} {addressOutDbg[6]} {addressOutDbg[7]} {addressOutDbg[8]} {addressOutDbg[9]} {addressOutDbg[10]} {addressOutDbg[11]} {addressOutDbg[12]} {addressOutDbg[13]} {addressOutDbg[14]} {addressOutDbg[15]} {addressOutDbg[16]} {addressOutDbg[17]} {addressOutDbg[18]} {addressOutDbg[19]} {addressOutDbg[20]} {addressOutDbg[21]} {addressOutDbg[22]} {addressOutDbg[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe13]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe13]
+connect_debug_port u_ila_0/probe13 [get_nets [list clkEn ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe14]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe14]
+connect_debug_port u_ila_0/probe14 [get_nets [list en ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe15]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe15]
+connect_debug_port u_ila_0/probe15 [get_nets [list enBtnDbg ]]
+save_constraints
+close_design
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Mon May 25 15:55:49 2026] Launched impl_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/runme.log
+set_property PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {clkEn} }
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-May-25 16:32:15
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-May-25 16:32:18
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-May-25 16:32:25
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-May-25 16:32:28
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-May-25 16:33:20
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-May-25 16:33:22
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Mon May 25 16:35:51 2026] Launched synth_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a35tfgg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.057 . Memory (MB): peak = 2471.629 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 228 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2023.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc]
+CRITICAL WARNING: [Common 17-163] Missing value for option 'period', please type 'create_clock -help' for usage info. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:5]
+WARNING: [Vivado 12-584] No ports matched 'led[0]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:8]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:8]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[1]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[2]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[3]'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'prgmSwitch'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:77]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:77]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'haltSwitch'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:78]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:78]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gotoSwitch'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:79]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:79]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:401]
+WARNING: [Vivado 12-507] No nets matched 'clk'. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:406]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:406]
+Finished Parsing XDC File [C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/constrs_1/new/Hardware.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2471.629 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  FDCP => FDCP (FDCE, FDPE, LDCE, LUT3, VCC): 1 instance 
+  IOBUF => IOBUF (IBUF, OBUFT): 8 instances
+
+open_run: Time (s): cpu = 00:00:11 ; elapsed = 00:00:07 . Memory (MB): peak = 2471.629 ; gain = 0.000
+delete_debug_core [get_debug_cores {u_ila_0 }]
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 8192 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+connect_debug_port u_ila_0/clk [get_nets [list clkIn_IBUF_BUFG ]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {control/instruction[0]} {control/instruction[1]} {control/instruction[2]} {control/instruction[3]} {control/instruction[4]} {control/instruction[5]} {control/instruction[6]} {control/instruction[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {control/exceptNum[0]} {control/exceptNum[1]} {control/exceptNum[2]} {control/exceptNum[3]} {control/exceptNum[4]} {control/exceptNum[5]} {control/exceptNum[6]} {control/exceptNum[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {control/mar[0]} {control/mar[1]} {control/mar[2]} {control/mar[3]} {control/mar[4]} {control/mar[5]} {control/mar[6]} {control/mar[7]} {control/mar[8]} {control/mar[9]} {control/mar[10]} {control/mar[11]} {control/mar[12]} {control/mar[13]} {control/mar[14]} {control/mar[15]} {control/mar[16]} {control/mar[17]} {control/mar[18]} {control/mar[19]} {control/mar[20]} {control/mar[21]} {control/mar[22]} {control/mar[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe3]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {control/mdr[0]} {control/mdr[1]} {control/mdr[2]} {control/mdr[3]} {control/mdr[4]} {control/mdr[5]} {control/mdr[6]} {control/mdr[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 16 [get_debug_ports u_ila_0/probe4]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {control/cycleCount[0]} {control/cycleCount[1]} {control/cycleCount[2]} {control/cycleCount[3]} {control/cycleCount[4]} {control/cycleCount[5]} {control/cycleCount[6]} {control/cycleCount[7]} {control/cycleCount[8]} {control/cycleCount[9]} {control/cycleCount[10]} {control/cycleCount[11]} {control/cycleCount[12]} {control/cycleCount[13]} {control/cycleCount[14]} {control/cycleCount[15]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe5]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {control/r1Out[0]} {control/r1Out[1]} {control/r1Out[2]} {control/r1Out[3]} {control/r1Out[4]} {control/r1Out[5]} {control/r1Out[6]} {control/r1Out[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 4 [get_debug_ports u_ila_0/probe6]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {control/state[0]} {control/state[1]} {control/state[2]} {control/state[3]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe7]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {addressOutDbg[0]} {addressOutDbg[1]} {addressOutDbg[2]} {addressOutDbg[3]} {addressOutDbg[4]} {addressOutDbg[5]} {addressOutDbg[6]} {addressOutDbg[7]} {addressOutDbg[8]} {addressOutDbg[9]} {addressOutDbg[10]} {addressOutDbg[11]} {addressOutDbg[12]} {addressOutDbg[13]} {addressOutDbg[14]} {addressOutDbg[15]} {addressOutDbg[16]} {addressOutDbg[17]} {addressOutDbg[18]} {addressOutDbg[19]} {addressOutDbg[20]} {addressOutDbg[21]} {addressOutDbg[22]} {addressOutDbg[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe8]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {pc[0]} {pc[1]} {pc[2]} {pc[3]} {pc[4]} {pc[5]} {pc[6]} {pc[7]} {pc[8]} {pc[9]} {pc[10]} {pc[11]} {pc[12]} {pc[13]} {pc[14]} {pc[15]} {pc[16]} {pc[17]} {pc[18]} {pc[19]} {pc[20]} {pc[21]} {pc[22]} {pc[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe9]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list {dataOutDbg[0]} {dataOutDbg[1]} {dataOutDbg[2]} {dataOutDbg[3]} {dataOutDbg[4]} {dataOutDbg[5]} {dataOutDbg[6]} {dataOutDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe10]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list {clkCnt[0]} {clkCnt[1]} {clkCnt[2]} {clkCnt[3]} {clkCnt[4]} {clkCnt[5]} {clkCnt[6]} {clkCnt[7]} {clkCnt[8]} {clkCnt[9]} {clkCnt[10]} {clkCnt[11]} {clkCnt[12]} {clkCnt[13]} {clkCnt[14]} {clkCnt[15]} {clkCnt[16]} {clkCnt[17]} {clkCnt[18]} {clkCnt[19]} {clkCnt[20]} {clkCnt[21]} {clkCnt[22]} {clkCnt[23]} {clkCnt[24]} {clkCnt[25]} {clkCnt[26]} {clkCnt[27]} {clkCnt[28]} {clkCnt[29]} {clkCnt[30]} {clkCnt[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe11]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list {dataInDbg[0]} {dataInDbg[1]} {dataInDbg[2]} {dataInDbg[3]} {dataInDbg[4]} {dataInDbg[5]} {dataInDbg[6]} {dataInDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe12]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe12]
+connect_debug_port u_ila_0/probe12 [get_nets [list {dataDbg[0]} {dataDbg[1]} {dataDbg[2]} {dataDbg[3]} {dataDbg[4]} {dataDbg[5]} {dataDbg[6]} {dataDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe13]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe13]
+connect_debug_port u_ila_0/probe13 [get_nets [list clkEn ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe14]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe14]
+connect_debug_port u_ila_0/probe14 [get_nets [list en ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe15]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe15]
+connect_debug_port u_ila_0/probe15 [get_nets [list enBtnDbg ]]
+save_constraints
+close_design
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+[Mon May 25 16:39:22 2026] Launched impl_1...
+Run output will be captured here: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/runme.log
+set_property PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-2302] Device xc7a35t (JTAG device index = 0) is programmed with a design that has 1 ILA core(s).
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-May-25 16:47:32
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-May-25 16:47:38
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property CONTROL.TRIGGER_POSITION 2047 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-May-25 16:48:28
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+INFO: [Labtools 27-1966] The ILA core 'hw_ila_1' triggered at 2026-May-25 16:48:31
+INFO: [Labtools 27-3304] ILA Waveform data saved to file C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.hw/backup/hw_ila_data_1.ila. Use Tcl command 'read_hw_ila_data' or Vivado File->Import->Import ILA Data menu item to import the previously saved data.
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes enBtnDbg -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes en -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq24'h00_0001 [get_hw_probes pc -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+INFO: [Labtools 27-1964] The ILA core 'hw_ila_1' trigger was armed at 2026-May-25 16:50:02
+set_property TRIGGER_COMPARE_VALUE eq24'hXX_XXXX [get_hw_probes pc -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Xicom 50-38] xicom: Unable to connect to debug core(s) on the target device. Check cable connectivity and that the target board is powered up then use the disconnect_hw_server and connect_hw_server to re-initialize the hardware target. Use open_hw_target to re-register the hardware device.
+ERROR: [Labtools 27-3176] hw_server failed during internal command.
+Resolution: Check that the hw_server is running and the hardware connectivity to the target

@@ -1,0 +1,725 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Wed Jun 17 19:32:35 2026
+# Process ID: 2672
+# Current directory: X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.runs/impl_1
+# Command line: vivado.exe -log IO.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source IO.tcl -notrace
+# Log file: X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.runs/impl_1/IO.vdi
+# Journal file: X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.runs/impl_1\vivado.jou
+# Running On: Iron-Man, OS: Windows, CPU Frequency: 3503 MHz, CPU Physical cores: 4, Host memory: 33237 MB
+#-----------------------------------------------------------
+source IO.tcl -notrace
+create_project: Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 500.641 ; gain = 205.125
+Command: link_design -top IO -part xc7a35tfgg484-1
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Device 21-403] Loading part xc7a35tfgg484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 895.824 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc]
+WARNING: [Vivado 12-584] No ports matched 'clkIn'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:4]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clkIn]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:4]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-584] No ports matched 'clkIn'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:5]
+CRITICAL WARNING: [Common 17-163] Missing value for option 'period', please type 'create_clock -help' for usage info. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:5]
+WARNING: [Vivado 12-584] No ports matched 'clkIn'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:6]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:8]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:8]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'led[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:11]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:11]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rst'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:13]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:13]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'enBtn'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:14]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:14]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'stepBtn'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:16]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:16]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:22]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:22]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:23]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:23]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:24]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:25]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:25]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:26]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:26]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:27]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:27]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:28]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:28]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:29]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:29]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:30]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:30]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:31]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:31]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:32]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:33]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:33]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:34]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:34]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:35]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:36]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:36]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:37]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:37]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:45]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:45]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:46]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:46]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:47]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:47]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:48]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:48]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:49]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:49]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:50]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:50]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:51]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:51]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'data[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:52]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:52]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'deviceEn[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:74]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:74]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'deviceEn[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:75]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:75]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'prgmSwitch'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:77]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:77]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'haltSwitch'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:78]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:78]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'gotoSwitch'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:79]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:79]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'memoryMode'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:81]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:81]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'tx'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:83]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:83]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[*]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[*]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:89]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:89]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:90]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:90]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:91]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:91]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:92]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:92]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:93]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:93]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:94]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:94]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:95]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:95]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:96]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:96]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[8]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:97]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:97]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[9]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:98]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:98]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[10]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:99]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:99]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[11]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:100]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:100]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[12]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:101]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:101]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[13]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:102]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:102]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[14]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:103]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:103]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[15]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:104]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:104]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[16]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:105]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:105]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[17]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:107]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:107]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[18]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:108]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:108]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[19]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:109]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:109]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[20]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:110]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:110]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[21]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:111]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:111]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[22]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:112]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:112]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'addressOut[23]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:113]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:113]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:115]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:115]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:116]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:116]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:117]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:117]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:118]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:118]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:119]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:119]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:120]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:120]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:121]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:121]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'seg[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:122]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:122]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'disp[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:124]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:124]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'disp[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:125]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:125]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'disp[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:126]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:126]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'disp[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:127]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:127]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'disp[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:128]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:128]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'disp[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:129]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:129]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'clkEn'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:401]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:401]
+WARNING: [Vivado 12-507] No nets matched 'clk'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:406]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:406]
+CRITICAL WARNING: [Vivado 12-8438] Can not perform 'create_debug_core'. Static region of netlist is locked [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:417]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:418]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:418]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:419]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:419]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:420]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:420]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:421]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:421]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:422]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:422]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:423]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:423]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:424]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:424]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:425]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:425]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:426]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:426]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'clkIn_IBUF_BUFG'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:427]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:427]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:428]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:428]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:429]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:429]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'control/exceptNum[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:430]
+WARNING: [Vivado 12-507] No nets matched 'control/exceptNum[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:430]
+WARNING: [Vivado 12-507] No nets matched 'control/exceptNum[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:430]
+WARNING: [Vivado 12-507] No nets matched 'control/exceptNum[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:430]
+WARNING: [Vivado 12-507] No nets matched 'control/exceptNum[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:430]
+WARNING: [Vivado 12-507] No nets matched 'control/exceptNum[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:430]
+WARNING: [Vivado 12-507] No nets matched 'control/exceptNum[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:430]
+WARNING: [Vivado 12-507] No nets matched 'control/exceptNum[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:430]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:430]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:431]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:432]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:432]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:433]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:433]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'control/mdr[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:434]
+WARNING: [Vivado 12-507] No nets matched 'control/mdr[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:434]
+WARNING: [Vivado 12-507] No nets matched 'control/mdr[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:434]
+WARNING: [Vivado 12-507] No nets matched 'control/mdr[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:434]
+WARNING: [Vivado 12-507] No nets matched 'control/mdr[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:434]
+WARNING: [Vivado 12-507] No nets matched 'control/mdr[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:434]
+WARNING: [Vivado 12-507] No nets matched 'control/mdr[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:434]
+WARNING: [Vivado 12-507] No nets matched 'control/mdr[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:434]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:434]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:435]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:436]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:436]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:437]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:437]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'control/instruction[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:438]
+WARNING: [Vivado 12-507] No nets matched 'control/instruction[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:438]
+WARNING: [Vivado 12-507] No nets matched 'control/instruction[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:438]
+WARNING: [Vivado 12-507] No nets matched 'control/instruction[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:438]
+WARNING: [Vivado 12-507] No nets matched 'control/instruction[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:438]
+WARNING: [Vivado 12-507] No nets matched 'control/instruction[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:438]
+WARNING: [Vivado 12-507] No nets matched 'control/instruction[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:438]
+WARNING: [Vivado 12-507] No nets matched 'control/instruction[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:438]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:438]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:439]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:440]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:440]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:441]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:441]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'control/mar[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[8]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[9]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[10]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[11]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[12]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[13]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[14]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[15]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[16]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[17]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[18]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[19]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[20]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[21]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[22]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+WARNING: [Vivado 12-507] No nets matched 'control/mar[23]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:442]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:443]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:444]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:444]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:445]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:445]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[8]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[9]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[10]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[11]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[12]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[13]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[14]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[15]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[16]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[17]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[18]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[19]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[20]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[21]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[22]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+WARNING: [Vivado 12-507] No nets matched 'control/stackFramePointer[23]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:446]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:447]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:448]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:448]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:449]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:449]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+INFO: [Common 17-14] Message 'Common 17-55' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:449]
+WARNING: [Vivado 12-507] No nets matched 'control/state[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:450]
+WARNING: [Vivado 12-507] No nets matched 'control/state[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:450]
+WARNING: [Vivado 12-507] No nets matched 'control/state[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:450]
+WARNING: [Vivado 12-507] No nets matched 'control/state[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:450]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:450]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:451]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:452]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:453]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[0]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[1]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[2]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[3]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[4]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[5]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[6]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[7]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[8]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[9]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[10]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[11]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[12]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[13]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[14]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[15]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[16]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[17]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[18]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[19]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+WARNING: [Vivado 12-507] No nets matched 'control/retAddrDbg[20]'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+INFO: [Common 17-14] Message 'Vivado 12-507' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:454]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:455]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:456]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:457]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:458]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:459]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:460]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:461]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:462]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:463]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:464]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:465]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:466]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:467]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:468]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:469]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:470]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:471]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:472]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:473]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:474]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:475]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:476]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:477]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:478]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:479]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:480]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:481]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:482]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:483]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:484]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:485]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:486]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:487]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:488]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:489]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:490]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:491]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:492]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:493]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:494]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:495]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:496]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:497]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:498]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:499]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:500]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:501]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:502]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:503]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:504]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:505]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:506]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:507]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:508]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:509]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:510]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:511]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:512]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:513]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:514]
+CRITICAL WARNING: [Vivado 12-717] Could not find debug core 'u_ila_0'. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:515]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:516]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:517]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'u_ila_0' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:518]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:519]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:520]
+WARNING: [Vivado 12-750] There are no ChipScope debug cores in this design. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:521]
+CRITICAL WARNING: [Vivado 12-1419] Debug core 'dbg_hub' was not found. [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc:522]
+Finished Parsing XDC File [X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1020.902 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+6 Infos, 239 Warnings, 152 Critical Warnings and 0 Errors encountered.
+link_design completed successfully
+link_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 1020.902 ; gain = 515.297
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.884 . Memory (MB): peak = 1025.926 ; gain = 5.023
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1500.012 ; gain = 474.086
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1863.094 ; gain = 0.000
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Phase 1 Initialization | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.016 . Memory (MB): peak = 1863.094 ; gain = 0.000
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Timer Update
+Phase 2.1 Timer Update | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1863.094 ; gain = 0.000
+
+Phase 2.2 Timing Data Collection
+Phase 2.2 Timing Data Collection | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Phase 2 Timer Update And Timing Data Collection | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 1863.094 ; gain = 0.000
+
+Phase 3 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.050 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Retarget | Checksum: e93c4fe1
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Constant propagation | Checksum: e93c4fe1
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 5 Sweep
+Phase 5 Sweep | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.068 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Sweep | Checksum: e93c4fe1
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 6 BUFG optimization
+Phase 6 BUFG optimization | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.120 . Memory (MB): peak = 1863.094 ; gain = 0.000
+BUFG optimization | Checksum: e93c4fe1
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.130 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Shift Register Optimization | Checksum: e93c4fe1
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.137 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Post Processing Netlist | Checksum: e93c4fe1
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.146 . Memory (MB): peak = 1863.094 ; gain = 0.000
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Phase 9.2 Verifying Netlist Connectivity | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.154 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Phase 9 Finalization | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.157 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               0  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.173 . Memory (MB): peak = 1863.094 ; gain = 0.000
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1863.094 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1863.094 ; gain = 0.000
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1863.094 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1863.094 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: e93c4fe1
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1863.094 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+24 Infos, 239 Warnings, 152 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1863.094 ; gain = 842.191
+INFO: [runtcl-4] Executing : report_drc -file IO_drc_opted.rpt -pb IO_drc_opted.pb -rpx IO_drc_opted.rpx
+Command: report_drc -file IO_drc_opted.rpt -pb IO_drc_opted.pb -rpx IO_drc_opted.rpx
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2023.2/data/ip'.
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 2-168] The results of DRC are in file X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.runs/impl_1/IO_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Timing 38-480] Writing timing data to binary archive.
+INFO: [Common 17-1381] The checkpoint 'X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.runs/impl_1/IO_opt.dcp' has been generated.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1869.551 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 00000000
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1869.551 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 00000000
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1869.551 ; gain = 0.000
+ERROR: [Place 30-494] The design is empty
+Resolution: Check if opt_design has removed all the leaf cells of your design.  Check whether you have instantiated and connected all of the top level ports.
+Ending Placer Task | Checksum: 00000000
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 1869.551 ; gain = 0.000
+41 Infos, 239 Warnings, 152 Critical Warnings and 2 Errors encountered.
+place_design failed
+ERROR: [Common 17-69] Command failed: Placer could not place all instances
+INFO: [Common 17-206] Exiting Vivado at Wed Jun 17 19:33:23 2026...

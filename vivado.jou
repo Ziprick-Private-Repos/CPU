@@ -1,0 +1,250 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Sun May 24 15:41:31 2026
+# Process ID: 11704
+# Current directory: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15556 C:\Users\jmzip\OneDrive\Coding-Projects\Verilog\CPU\CPU.xpr
+# Log file: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/vivado.log
+# Journal file: C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU\vivado.jou
+# Running On: Iron-Man, OS: Windows, CPU Frequency: 3503 MHz, CPU Physical cores: 4, Host memory: 33237 MB
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.xpr
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+open_hw_manager
+connect_hw_server -allow_non_jtag
+open_hw_target
+set_property PROGRAM.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.bit} [get_hw_devices xc7a35t_0]
+set_property PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+set_property PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+display_hw_ila_data [ get_hw_ila_data hw_ila_data_1 -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq24'hXX_XXXX [get_hw_probes control/mar -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes enBtnDbg -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+delete_debug_core [get_debug_cores {u_ila_0 }]
+save_constraints
+close_design
+open_run synth_1 -name synth_1
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 4096 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+connect_debug_port u_ila_0/clk [get_nets [list clkIn_IBUF_BUFG ]]
+set_property port_width 24 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {control/mar[0]} {control/mar[1]} {control/mar[2]} {control/mar[3]} {control/mar[4]} {control/mar[5]} {control/mar[6]} {control/mar[7]} {control/mar[8]} {control/mar[9]} {control/mar[10]} {control/mar[11]} {control/mar[12]} {control/mar[13]} {control/mar[14]} {control/mar[15]} {control/mar[16]} {control/mar[17]} {control/mar[18]} {control/mar[19]} {control/mar[20]} {control/mar[21]} {control/mar[22]} {control/mar[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 4 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {control/state[0]} {control/state[1]} {control/state[2]} {control/state[3]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {control/r1Out[0]} {control/r1Out[1]} {control/r1Out[2]} {control/r1Out[3]} {control/r1Out[4]} {control/r1Out[5]} {control/r1Out[6]} {control/r1Out[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe3]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {control/instruction[0]} {control/instruction[1]} {control/instruction[2]} {control/instruction[3]} {control/instruction[4]} {control/instruction[5]} {control/instruction[6]} {control/instruction[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe4]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {control/exceptNum[0]} {control/exceptNum[1]} {control/exceptNum[2]} {control/exceptNum[3]} {control/exceptNum[4]} {control/exceptNum[5]} {control/exceptNum[6]} {control/exceptNum[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe5]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {control/mdr[0]} {control/mdr[1]} {control/mdr[2]} {control/mdr[3]} {control/mdr[4]} {control/mdr[5]} {control/mdr[6]} {control/mdr[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 16 [get_debug_ports u_ila_0/probe6]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {control/cycleCount[0]} {control/cycleCount[1]} {control/cycleCount[2]} {control/cycleCount[3]} {control/cycleCount[4]} {control/cycleCount[5]} {control/cycleCount[6]} {control/cycleCount[7]} {control/cycleCount[8]} {control/cycleCount[9]} {control/cycleCount[10]} {control/cycleCount[11]} {control/cycleCount[12]} {control/cycleCount[13]} {control/cycleCount[14]} {control/cycleCount[15]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe7]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {dataInDbg[0]} {dataInDbg[1]} {dataInDbg[2]} {dataInDbg[3]} {dataInDbg[4]} {dataInDbg[5]} {dataInDbg[6]} {dataInDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe8]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {pc[0]} {pc[1]} {pc[2]} {pc[3]} {pc[4]} {pc[5]} {pc[6]} {pc[7]} {pc[8]} {pc[9]} {pc[10]} {pc[11]} {pc[12]} {pc[13]} {pc[14]} {pc[15]} {pc[16]} {pc[17]} {pc[18]} {pc[19]} {pc[20]} {pc[21]} {pc[22]} {pc[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe9]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list {dataDbg[0]} {dataDbg[1]} {dataDbg[2]} {dataDbg[3]} {dataDbg[4]} {dataDbg[5]} {dataDbg[6]} {dataDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe10]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list {dataOutDbg[0]} {dataOutDbg[1]} {dataOutDbg[2]} {dataOutDbg[3]} {dataOutDbg[4]} {dataOutDbg[5]} {dataOutDbg[6]} {dataOutDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe11]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list {clkCnt[0]} {clkCnt[1]} {clkCnt[2]} {clkCnt[3]} {clkCnt[4]} {clkCnt[5]} {clkCnt[6]} {clkCnt[7]} {clkCnt[8]} {clkCnt[9]} {clkCnt[10]} {clkCnt[11]} {clkCnt[12]} {clkCnt[13]} {clkCnt[14]} {clkCnt[15]} {clkCnt[16]} {clkCnt[17]} {clkCnt[18]} {clkCnt[19]} {clkCnt[20]} {clkCnt[21]} {clkCnt[22]} {clkCnt[23]} {clkCnt[24]} {clkCnt[25]} {clkCnt[26]} {clkCnt[27]} {clkCnt[28]} {clkCnt[29]} {clkCnt[30]} {clkCnt[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe12]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe12]
+connect_debug_port u_ila_0/probe12 [get_nets [list {addressOutDbg[0]} {addressOutDbg[1]} {addressOutDbg[2]} {addressOutDbg[3]} {addressOutDbg[4]} {addressOutDbg[5]} {addressOutDbg[6]} {addressOutDbg[7]} {addressOutDbg[8]} {addressOutDbg[9]} {addressOutDbg[10]} {addressOutDbg[11]} {addressOutDbg[12]} {addressOutDbg[13]} {addressOutDbg[14]} {addressOutDbg[15]} {addressOutDbg[16]} {addressOutDbg[17]} {addressOutDbg[18]} {addressOutDbg[19]} {addressOutDbg[20]} {addressOutDbg[21]} {addressOutDbg[22]} {addressOutDbg[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe13]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe13]
+connect_debug_port u_ila_0/probe13 [get_nets [list clkEn ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe14]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe14]
+connect_debug_port u_ila_0/probe14 [get_nets [list en ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe15]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe15]
+connect_debug_port u_ila_0/probe15 [get_nets [list enBtnDbg ]]
+save_constraints
+close_design
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+add_wave -into {hw_ila_data_1.wcfg} -radix hex { {clkEn} }
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+delete_debug_core [get_debug_cores {u_ila_0 }]
+create_debug_core u_ila_0 ila
+set_property C_DATA_DEPTH 8192 [get_debug_cores u_ila_0]
+set_property C_TRIGIN_EN false [get_debug_cores u_ila_0]
+set_property C_TRIGOUT_EN false [get_debug_cores u_ila_0]
+set_property C_ADV_TRIGGER false [get_debug_cores u_ila_0]
+set_property C_INPUT_PIPE_STAGES 0 [get_debug_cores u_ila_0]
+set_property C_EN_STRG_QUAL false [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU true [get_debug_cores u_ila_0]
+set_property ALL_PROBE_SAME_MU_CNT 1 [get_debug_cores u_ila_0]
+connect_debug_port u_ila_0/clk [get_nets [list clkIn_IBUF_BUFG ]]
+set_property port_width 8 [get_debug_ports u_ila_0/probe0]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe0]
+connect_debug_port u_ila_0/probe0 [get_nets [list {control/instruction[0]} {control/instruction[1]} {control/instruction[2]} {control/instruction[3]} {control/instruction[4]} {control/instruction[5]} {control/instruction[6]} {control/instruction[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe1]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe1]
+connect_debug_port u_ila_0/probe1 [get_nets [list {control/exceptNum[0]} {control/exceptNum[1]} {control/exceptNum[2]} {control/exceptNum[3]} {control/exceptNum[4]} {control/exceptNum[5]} {control/exceptNum[6]} {control/exceptNum[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe2]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe2]
+connect_debug_port u_ila_0/probe2 [get_nets [list {control/mar[0]} {control/mar[1]} {control/mar[2]} {control/mar[3]} {control/mar[4]} {control/mar[5]} {control/mar[6]} {control/mar[7]} {control/mar[8]} {control/mar[9]} {control/mar[10]} {control/mar[11]} {control/mar[12]} {control/mar[13]} {control/mar[14]} {control/mar[15]} {control/mar[16]} {control/mar[17]} {control/mar[18]} {control/mar[19]} {control/mar[20]} {control/mar[21]} {control/mar[22]} {control/mar[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe3]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe3]
+connect_debug_port u_ila_0/probe3 [get_nets [list {control/mdr[0]} {control/mdr[1]} {control/mdr[2]} {control/mdr[3]} {control/mdr[4]} {control/mdr[5]} {control/mdr[6]} {control/mdr[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 16 [get_debug_ports u_ila_0/probe4]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe4]
+connect_debug_port u_ila_0/probe4 [get_nets [list {control/cycleCount[0]} {control/cycleCount[1]} {control/cycleCount[2]} {control/cycleCount[3]} {control/cycleCount[4]} {control/cycleCount[5]} {control/cycleCount[6]} {control/cycleCount[7]} {control/cycleCount[8]} {control/cycleCount[9]} {control/cycleCount[10]} {control/cycleCount[11]} {control/cycleCount[12]} {control/cycleCount[13]} {control/cycleCount[14]} {control/cycleCount[15]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe5]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe5]
+connect_debug_port u_ila_0/probe5 [get_nets [list {control/r1Out[0]} {control/r1Out[1]} {control/r1Out[2]} {control/r1Out[3]} {control/r1Out[4]} {control/r1Out[5]} {control/r1Out[6]} {control/r1Out[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 4 [get_debug_ports u_ila_0/probe6]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe6]
+connect_debug_port u_ila_0/probe6 [get_nets [list {control/state[0]} {control/state[1]} {control/state[2]} {control/state[3]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe7]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe7]
+connect_debug_port u_ila_0/probe7 [get_nets [list {addressOutDbg[0]} {addressOutDbg[1]} {addressOutDbg[2]} {addressOutDbg[3]} {addressOutDbg[4]} {addressOutDbg[5]} {addressOutDbg[6]} {addressOutDbg[7]} {addressOutDbg[8]} {addressOutDbg[9]} {addressOutDbg[10]} {addressOutDbg[11]} {addressOutDbg[12]} {addressOutDbg[13]} {addressOutDbg[14]} {addressOutDbg[15]} {addressOutDbg[16]} {addressOutDbg[17]} {addressOutDbg[18]} {addressOutDbg[19]} {addressOutDbg[20]} {addressOutDbg[21]} {addressOutDbg[22]} {addressOutDbg[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 24 [get_debug_ports u_ila_0/probe8]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe8]
+connect_debug_port u_ila_0/probe8 [get_nets [list {pc[0]} {pc[1]} {pc[2]} {pc[3]} {pc[4]} {pc[5]} {pc[6]} {pc[7]} {pc[8]} {pc[9]} {pc[10]} {pc[11]} {pc[12]} {pc[13]} {pc[14]} {pc[15]} {pc[16]} {pc[17]} {pc[18]} {pc[19]} {pc[20]} {pc[21]} {pc[22]} {pc[23]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe9]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe9]
+connect_debug_port u_ila_0/probe9 [get_nets [list {dataOutDbg[0]} {dataOutDbg[1]} {dataOutDbg[2]} {dataOutDbg[3]} {dataOutDbg[4]} {dataOutDbg[5]} {dataOutDbg[6]} {dataOutDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 32 [get_debug_ports u_ila_0/probe10]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe10]
+connect_debug_port u_ila_0/probe10 [get_nets [list {clkCnt[0]} {clkCnt[1]} {clkCnt[2]} {clkCnt[3]} {clkCnt[4]} {clkCnt[5]} {clkCnt[6]} {clkCnt[7]} {clkCnt[8]} {clkCnt[9]} {clkCnt[10]} {clkCnt[11]} {clkCnt[12]} {clkCnt[13]} {clkCnt[14]} {clkCnt[15]} {clkCnt[16]} {clkCnt[17]} {clkCnt[18]} {clkCnt[19]} {clkCnt[20]} {clkCnt[21]} {clkCnt[22]} {clkCnt[23]} {clkCnt[24]} {clkCnt[25]} {clkCnt[26]} {clkCnt[27]} {clkCnt[28]} {clkCnt[29]} {clkCnt[30]} {clkCnt[31]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe11]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe11]
+connect_debug_port u_ila_0/probe11 [get_nets [list {dataInDbg[0]} {dataInDbg[1]} {dataInDbg[2]} {dataInDbg[3]} {dataInDbg[4]} {dataInDbg[5]} {dataInDbg[6]} {dataInDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 8 [get_debug_ports u_ila_0/probe12]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe12]
+connect_debug_port u_ila_0/probe12 [get_nets [list {dataDbg[0]} {dataDbg[1]} {dataDbg[2]} {dataDbg[3]} {dataDbg[4]} {dataDbg[5]} {dataDbg[6]} {dataDbg[7]} ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe13]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe13]
+connect_debug_port u_ila_0/probe13 [get_nets [list clkEn ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe14]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe14]
+connect_debug_port u_ila_0/probe14 [get_nets [list en ]]
+create_debug_port u_ila_0 probe
+set_property port_width 1 [get_debug_ports u_ila_0/probe15]
+set_property PROBE_TYPE DATA_AND_TRIGGER [get_debug_ports u_ila_0/probe15]
+connect_debug_port u_ila_0/probe15 [get_nets [list enBtnDbg ]]
+save_constraints
+close_design
+launch_runs impl_1 -to_step write_bitstream -jobs 8
+wait_on_run impl_1
+set_property PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.ltx} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.runs/impl_1/IO.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property CONTROL.TRIGGER_POSITION 2047 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+wait_on_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+display_hw_ila_data [upload_hw_ila_data [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'bX [get_hw_probes enBtnDbg -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq1'b0 [get_hw_probes en -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+set_property TRIGGER_COMPARE_VALUE eq24'h00_0001 [get_hw_probes pc -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+run_hw_ila [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]
+set_property TRIGGER_COMPARE_VALUE eq24'hXX_XXXX [get_hw_probes pc -of_objects [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]]
+wait_on_hw_ila -timeout 0 [get_hw_ilas -of_objects [get_hw_devices xc7a35t_0] -filter {CELL_NAME=~"u_ila_0"}]

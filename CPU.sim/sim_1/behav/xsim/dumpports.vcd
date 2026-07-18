@@ -1,0 +1,107 @@
+$date
+   Mon Apr 21 21:07:19 2025
+$end
+
+$version
+  2023.2
+$end
+
+$timescale
+  1ps
+$end
+
+$scope module Test.uut.control $end
+$var port 1 <0 clk $end
+$var port 1 <1 rstIn $end
+$var port [23:0] <2 addrOut $end
+$var port [1:0] <3 memReadWrite $end
+$var port [7:0] <4 toDataBus $end
+$var port [7:0] <5 dataIn $end
+$var port [3:0] <6 hardInterrupt $end
+$scope module Test.uut.control.r1 $end
+$var port 1 <0 clk $end
+$var port 1 <1 rst $end
+$var port [7:0] <7 dataIn $end
+$var port [7:0] <8 dataOut $end
+$var port 1 <9 en $end
+$upscope $end
+$scope module Test.uut.control.r2 $end
+$var port 1 <10 en $end
+$var port [7:0] <11 dataOut $end
+$var port [7:0] <12 dataIn $end
+$var port 1 <1 rst $end
+$var port 1 <0 clk $end
+$upscope $end
+$scope module Test.uut.control.r3 $end
+$var port 1 <13 en $end
+$var port [7:0] <14 dataOut $end
+$var port [7:0] <15 dataIn $end
+$var port 1 <1 rst $end
+$var port 1 <0 clk $end
+$upscope $end
+$scope module Test.uut.control.r4 $end
+$var port 1 <16 en $end
+$var port [7:0] <17 dataOut $end
+$var port [7:0] <18 dataIn $end
+$var port 1 <1 rst $end
+$var port 1 <0 clk $end
+$upscope $end
+$scope module Test.uut.control.alu $end
+$var port 1 <0 clk $end
+$var port 1 <1 rst $end
+$var port [7:0] <19 cycle $end
+$var port 1 <20 run $end
+$var port 1 <21 divDone $end
+$var port [3:0] <22 opcode $end
+$var port [7:0] <23 regA $end
+$var port [7:0] <24 regB $end
+$var port [7:0] <25 accumulator $end
+$var port [7:0] <26 remainder $end
+$var port 1 <27 greaterFlag $end
+$var port 1 <28 zeroFlag $end
+$var port 1 <29 eqFlag $end
+$var port 1 <30 overflowFlag $end
+$var port 1 <31 divZero $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+
+#520000
+$dumpports
+pU 0 6 <0
+pD 6 0 <1
+pD 6 0 <10
+pLLLLLLLL 66666666 00000000 <11
+pDDDDDDDD 66666666 00000000 <12
+pD 6 0 <13
+pLLLLLLLL 66666666 00000000 <14
+pDDDDDDDD 66666666 00000000 <15
+pD 6 0 <16
+pLLLLLLLL 66666666 00000000 <17
+pDDDDDDDD 66666666 00000000 <18
+pDDDDDDDU 66666660 00000006 <19
+pLLLLLLLLLLLLLLHLLLLLHHLL 666666666666660666660066 000000000000006000006600 <2
+pD 6 0 <20
+pL 6 0 <21
+pDUUD 6006 0660 <22
+pDDDDDDDD 66666666 00000000 <23
+pDDDDDDDD 66666666 00000000 <24
+pLLLLLLLL 66666666 00000000 <25
+pLLLLLLLL 66666666 00000000 <26
+pL 6 0 <27
+pL 6 0 <28
+pL 6 0 <29
+pLL 66 00 <3
+pL 6 0 <30
+pL 6 0 <31
+pXXXXXXXX 66666666 66666666 <4
+pDDDDDDUD 66666606 00000060 <5
+pDDDD 6666 0000 <6
+pDDDDDDDD 66666666 00000000 <7
+pLLLLLLLL 66666666 00000000 <8
+pD 6 0 <9
+$end
+
+$vcdclose
+#520000
+$end

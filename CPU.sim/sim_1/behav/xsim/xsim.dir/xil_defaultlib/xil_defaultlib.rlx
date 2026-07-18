@@ -1,0 +1,12 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v,1745283549,verilog,,C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/ALU.v,,blk_mem_gen_0,,,,,,,,
+C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,,,,,,,
+C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sim_1/new/Test.v,1745895550,verilog,,,,Test,,,,,,,,
+C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/ALU.v,1744417613,verilog,,C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/Control.v,,Alu,,,,,,,,
+C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/Control.v,1748912620,verilog,,C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/IO.v,,Control,,,,,,,,
+C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/IO.v,1744417626,verilog,,C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/Register.v,,IO,,,,,,,,
+C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/MemInterface.v,1745896127,verilog,,,,MemInterface,,,,,,,,
+C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/Register.v,1744417633,verilog,,C:/Users/jmzip/OneDrive/Coding-Projects/Verilog/CPU/CPU.srcs/sources_1/new/MemInterface.v,,Register,,,,,,,,
