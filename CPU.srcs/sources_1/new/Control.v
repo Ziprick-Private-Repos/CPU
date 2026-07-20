@@ -27,7 +27,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
         localparam IDLE_WAIT_CYCLE = 1;
     `endif
 
-    localparam PC_START_ADDRESS_ON_POWER = 24'd0;
+    localparam PC_START_ADDRESS_ON_POWER = 24'd8192;
     //localparam PC_START_ADDRESS_ON_POWER = 24'd512;
 
     //stack
@@ -38,57 +38,67 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
     localparam ADDR_MODE_WRT   = 0;
     localparam ADDR_MODE_RD    = 1;
 
+    //faults
     parameter INVALID_INSTRUCTION   = 8'h01;
     parameter DIV_BY_ZERO           = 8'h02;
-    parameter GENERAL_FAULT         = 8'hff;
+    parameter INVALID_S_INT         = 8'h03;
+    //...
+    parameter GENERAL_FAULT         = 8'h04;
+
+    //hardware ints
+    //...
+    parameter H_INT_EXCEPTION       = 8'd15;
 
     parameter MAX_PIT_TIMER         = 24'd200_000; //@2mhz=>100ms
     reg [23:0]PITCnt;
     reg triggerPIT;
     reg PITFlag;
 
-    //external hardware int pointers
-    parameter IRQ_1_ADDR  = 24'd4;
-    parameter IRQ_2_ADDR  = 24'd8;
-    parameter IRQ_3_ADDR  = 24'd12;
-    parameter IRQ_4_ADDR  = 24'd16;
-    parameter IRQ_5_ADDR  = 24'd20;
-    parameter IRQ_6_ADDR  = 24'd24;
-    parameter IRQ_7_ADDR  = 24'd28;
-    parameter IRQ_8_ADDR  = 24'd32;
-    parameter IRQ_9_ADDR  = 24'd36;
-    parameter IRQ_10_ADDR = 24'd40;
-    parameter IRQ_11_ADDR = 24'd44;
-    parameter IRQ_12_ADDR = 24'd48;
-    parameter IRQ_13_ADDR = 24'd52;
-    parameter IRQ_14_ADDR = 24'd56;
-    parameter IRQ_15_ADDR = 24'd60;
+    //external hardware interrupt pointers
+    parameter IRQ_1_ADDR  = 24'd0;
+    parameter IRQ_2_ADDR  = 24'd4;
+    parameter IRQ_3_ADDR  = 24'd8;
+    parameter IRQ_4_ADDR  = 24'd12;
+    parameter IRQ_5_ADDR  = 24'd16;
+    parameter IRQ_6_ADDR  = 24'd20;
+    parameter IRQ_7_ADDR  = 24'd24;
+    parameter IRQ_8_ADDR  = 24'd28;
+    parameter IRQ_9_ADDR  = 24'd32;
+    parameter IRQ_10_ADDR = 24'd36;
+    parameter IRQ_11_ADDR = 24'd40;
+    parameter IRQ_12_ADDR = 24'd44;
+    parameter IRQ_13_ADDR = 24'd48;
+    parameter IRQ_14_ADDR = 24'd52;
+    parameter IRQ_15_ADDR = 24'd56;
 
-    //internal exception int pointers
-    parameter EXP_1_ADDR  = 24'd64;
-    parameter EXP_2_ADDR  = 24'd68;
-    parameter EXP_3_ADDR  = 24'd72;
-    parameter EXP_4_ADDR  = 24'd76;
-    parameter EXP_5_ADDR  = 24'd80;
-    parameter EXP_6_ADDR  = 24'd84;
-    parameter EXP_7_ADDR  = 24'd88;
-    parameter EXP_8_ADDR  = 24'd92;
-    parameter EXP_9_ADDR  = 24'd96;
-    parameter EXP_10_ADDR = 24'd100;
-    parameter EXP_11_ADDR = 24'd104;
-    parameter EXP_12_ADDR = 24'd108;
-    parameter EXP_13_ADDR = 24'd112;
-    parameter EXP_14_ADDR = 24'd116;
-    parameter EXP_15_ADDR = 24'd120;
+    //internal exception interrupt pointers
+    parameter EXP_1_ADDR  = 24'd60;
+    parameter EXP_2_ADDR  = 24'd64;
+    parameter EXP_3_ADDR  = 24'd68;
+    parameter EXP_4_ADDR  = 24'd72;
+    parameter EXP_5_ADDR  = 24'd76;
+    parameter EXP_6_ADDR  = 24'd80;
+    parameter EXP_7_ADDR  = 24'd84;
+    parameter EXP_8_ADDR  = 24'd88;
+    parameter EXP_9_ADDR  = 24'd92;
+    parameter EXP_10_ADDR = 24'd96;
+    parameter EXP_11_ADDR = 24'd100;
+    parameter EXP_12_ADDR = 24'd104;
+    parameter EXP_13_ADDR = 24'd108;
+    parameter EXP_14_ADDR = 24'd112;
+    parameter EXP_15_ADDR = 24'd116;
 
-    //software int call pointers
-    parameter SOFT_INT_16_ADDR = 24'd124;
-    parameter SOFT_INT_17_ADDR = 24'd128;
-    parameter SOFT_INT_18_ADDR = 24'd132;
-    parameter SOFT_INT_19_ADDR = 24'd136;
-    parameter SOFT_INT_20_ADDR = 24'd140;
-    parameter SOFT_INT_21_ADDR = 24'd144;
-    parameter SOFT_INT_22_ADDR = 24'd148;
+    //software interrupt call pointers
+    parameter SOFT_INT_16_ADDR = 24'd120;
+    parameter SOFT_INT_17_ADDR = 24'd124;
+    parameter SOFT_INT_18_ADDR = 24'd128;
+    parameter SOFT_INT_19_ADDR = 24'd132;
+    parameter SOFT_INT_20_ADDR = 24'd136;
+    parameter SOFT_INT_21_ADDR = 24'd140;
+    parameter SOFT_INT_22_ADDR = 24'd144;
+
+    //first address immediately after the interrupt vector table
+    parameter VECTOR_TABLE_END = 24'd148;
 
     //states
     reg [3:0]accessTimeCycleCount;
@@ -407,7 +417,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         r3En <= 0;
                         r4En <= 0;
 
-                        /*if((intLock && disableInt == 1'b0) || exceptNum || triggerPIT)
+                        if((intLock && disableInt == 1'b0) || exceptNum || triggerPIT)
                         begin
                             if(exceptNum)
                                 intLock <= 8'hff;
@@ -420,13 +430,14 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         else if(intNum)
                         begin
                             instruction <= H_INT;
-                        end*/
+                            state <= I_DECODE;
+                        end
 
-                        //else if(intLock == 1'b0)
-                        //begin
+                        else if(intLock == 1'b0)
+                        begin
                             instruction <= mdr;
                             state <= I_DECODE;
-                        //end
+                        end
                     end
                 end
 
@@ -882,7 +893,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                                     intNum <= 14;
 
                                 4'b1111:
-                                    intNum <= 15;    
+                                    intNum <= H_INT_EXCEPTION;    
 
                                 //exceptions
                                 default:
@@ -1106,6 +1117,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
                         default: //invalid instruction
                         begin
+                            intNum <= H_INT_EXCEPTION;
                             exceptNum <= INVALID_INSTRUCTION;
                             state <= I_IDLE;
                         end
@@ -1672,7 +1684,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         begin
                             addressLinesOutBuff[23:16] <= mdr;
                             state <= I_ACCESS_MEM_WRITE;
-                            cycleCount <= 4;
+                            cycleCount <= 5;
                         end
                     end
 
@@ -2056,6 +2068,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         begin
                             toDataBus <= r1Out;
                             mar <= stackPointer;
+                            memoryMode <= ADDR_MODE_WRT;
                             stackPointer <= stackPointer - 1;                 
                             cycleCount <= cycleCount - 1;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
@@ -2066,6 +2079,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         begin
                             toDataBus <= r2Out;
                             mar <= stackPointer;
+                            memoryMode <= ADDR_MODE_WRT;
                             stackPointer <= stackPointer - 1;
                             cycleCount <= cycleCount - 1;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
@@ -2076,6 +2090,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         begin
                             toDataBus <= r3Out;
                             mar <= stackPointer;
+                            memoryMode <= ADDR_MODE_WRT;
                             stackPointer <= stackPointer - 1;
                             cycleCount <= cycleCount - 1;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
@@ -2086,6 +2101,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         begin
                             toDataBus <= r4Out;
                             mar <= stackPointer;
+                            memoryMode <= ADDR_MODE_WRT;
                             stackPointer <= stackPointer - 1;
                             cycleCount <= cycleCount - 1;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
@@ -2095,27 +2111,29 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
                     else if(instruction == CALL)
                     begin
-                        if(cycleCount == 4)
+                        if(cycleCount == 5)
                         begin
+							memoryMode <= ADDR_MODE_WRT;
                             toDataBus <= retAddr[7:0];
                             stackPointer <= stackPointer - 1;
-                            mar <= stackPointer;
-                            memoryMode <= ADDR_MODE_WRT;
+                            mar <= stackPointer;  
                             cycleCount <= cycleCount - 1;
 							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
                         end
 
-                        else if(cycleCount == 3)
+                        else if(cycleCount == 4)
                         begin
+                            memoryMode <= ADDR_MODE_RD;
                             cycleCount <= cycleCount - 1;
                             mar <= stackPointer;
 							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
                         end
                         
-                        else if(cycleCount == 2)
+                        else if(cycleCount == 3)
                         begin
+							memoryMode <= ADDR_MODE_WRT;
                             toDataBus <= retAddr[15:8];
                             stackPointer <= stackPointer - 1;
                             cycleCount <= cycleCount - 1;
@@ -2123,16 +2141,19 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
                         end
 
-                        else if(cycleCount == 1)
+                        else if(cycleCount == 2)
                         begin
+                            memoryMode <= ADDR_MODE_RD;
                             cycleCount <= cycleCount - 1;   
                             mar <= stackPointer;       
 							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;							
                         end
 
-                        else if(cycleCount == 0)
+                        else if(cycleCount == 1)
                         begin
+							memoryMode <= ADDR_MODE_WRT;
+                            cycleCount <= cycleCount - 1;
                             toDataBus <= retAddr[23:16];
                             stackPointer <= stackPointer - 1;
 							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
@@ -2181,6 +2202,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                             toDataBus <= retAddr[15:8];
                             stackPointer <= stackPointer - 1;
                             mar <= stackPointer;
+                            memoryMode <= ADDR_MODE_WRT;
                             cycleCount <= cycleCount - 1;
                             state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
                             accessTimeCycleCount <= IDLE_WAIT_CYCLE;
@@ -2191,6 +2213,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                             toDataBus <= retAddr[23:16];
                             stackPointer <= stackPointer - 1;
                             mar <= stackPointer;
+                            memoryMode <= ADDR_MODE_WRT;
                             cycleCount <= cycleCount - 1;
                             state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
                             accessTimeCycleCount <= IDLE_WAIT_CYCLE;
@@ -2202,6 +2225,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                             toDataBus <= {2'b00, srFlag, divZero, greaterFlag, zeroFlag, eqFlag, overflowFlag};
                             stackPointer <= stackPointer - 1;
                             mar <= stackPointer;
+                            memoryMode <= ADDR_MODE_WRT;
                             cycleCount <= cycleCount - 1;
                             state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
                             accessTimeCycleCount <= IDLE_WAIT_CYCLE;
@@ -2235,7 +2259,8 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                             stackPointer <= stackPointer - 1;
                             mar <= stackPointer;
                             state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
-                            accessTimeCycleCount <= IDLE_WAIT_CYCLE;       
+                            accessTimeCycleCount <= IDLE_WAIT_CYCLE;
+							memoryMode <= ADDR_MODE_WRT;
                             cycleCount <= cycleCount - 1;
                         end
 
@@ -2246,6 +2271,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                             mar <= stackPointer;
                             state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
                             accessTimeCycleCount <= IDLE_WAIT_CYCLE;
+							memoryMode <= ADDR_MODE_WRT;
                             cycleCount <= cycleCount - 1;
                         end
 
@@ -2257,6 +2283,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                             mar <= stackPointer;
                             state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
                             accessTimeCycleCount <= IDLE_WAIT_CYCLE;
+							memoryMode <= ADDR_MODE_WRT;
                             cycleCount <= cycleCount - 1;
                         end
 
@@ -3598,6 +3625,21 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         
                         else
                         begin
+                            memoryMode <= ADDR_MODE_RD;
+                            state <= I_ACCESS_MEM_WRITE;
+                        end
+                    end
+
+                    else if(instruction == H_INT)
+                    begin
+                        if(accessTimeCycleCount)
+                        begin
+                            accessTimeCycleCount <= accessTimeCycleCount - 1;
+                        end
+                        
+                        else
+                        begin
+							memoryMode <= ADDR_MODE_RD;
                             state <= I_ACCESS_MEM_WRITE;
                         end
                     end
@@ -3611,7 +3653,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
                         else
                         begin
-                            mdr <= dataIn;
+                            memoryMode <= ADDR_MODE_RD;
                             state <= I_PC_NEXT;
                         end
                     end
@@ -3632,7 +3674,8 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                             end
                             
                             else
-                            begin                                    
+                            begin         
+                                memoryMode <= ADDR_MODE_RD;                           
                                 state <= I_ACCESS_MEM_WRITE;
                             end
                         end
@@ -3649,7 +3692,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         begin
 							if(cycleCount == 0)
 							begin
-                                stackPointer <= stackPointer - 1;
+                                memoryMode <= ADDR_MODE_RD;
 					            state <= I_PC_NEXT;
 								cycleCount <= 1;
                             end
@@ -4413,16 +4456,23 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                                         case(exceptNum)
                                             INVALID_INSTRUCTION:
                                             begin
-                                                exceptNum <= 0;
+                                                exceptNum <= INVALID_INSTRUCTION;
                                                 pc <= EXP_1_ADDR;
                                                 mar <= EXP_1_ADDR;
                                             end
 
                                             DIV_BY_ZERO:
                                             begin
-                                                exceptNum <= 0;
+                                                exceptNum <= DIV_BY_ZERO;
                                                 pc <= EXP_2_ADDR;
                                                 mar <= EXP_2_ADDR;
+                                            end
+
+                                            INVALID_S_INT:
+                                            begin
+                                                exceptNum <= INVALID_S_INT;
+                                                pc <= EXP_3_ADDR;
+                                                mar <= EXP_3_ADDR;
                                             end
                                         endcase
                                     end

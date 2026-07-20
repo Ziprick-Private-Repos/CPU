@@ -4,6 +4,11 @@ offset @0
 equ UART_SEND #$FFFF;
 equ UART_STORE #$FFFE;
 
+IntTable:
+
+;...
+;512
+
 Start:
 	lod #$DE
 	stb #$3FF8
@@ -13,7 +18,7 @@ Start:
 	stb #$3FF6
 	lod #$EF
 	stb #$3FF5
-
+	;bra #$1000
 	lod #$0F
 	mov r3,r1
 
@@ -36,7 +41,7 @@ Test1:
 	rts
 
 Test:
-	push r1
+	pusha
 	nop
 	nop
 	nop
@@ -44,7 +49,7 @@ Test:
 	call MemoryDump
 Continue:
 	call Test1
-	pop r1
+	popa
 	rts
 
 PrintHex:
@@ -410,3 +415,7 @@ dbh 0
 
 HexTable:
 dbc "0123456789ABCDEF"
+
+;8192
+;jmp table
+bra Start

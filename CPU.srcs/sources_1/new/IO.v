@@ -7,11 +7,10 @@
 
 //deviceEn => 2'b10==RAM
 //deviceEn => 2'b01==ROM
-module IO(input wire clkIn, input wire rst, input wire enBtn, input wire stepBtn, output wire memoryMode, output reg [1:0]deviceEn, output wire [23:0]addressOut, inout wire [7:0]data,
-output wire [7:0]seg, output wire [5:0]disp, output wire tx, input wire rx);
+module IO(input wire clkIn, input wire rst, input wire enBtn, input wire stepBtn, output wire memoryMode, output reg [1:0]deviceEn, output wire [23:0]addressOut, inout wire [7:0]data, 
+input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, output wire tx, input wire rx);
     wire gotoSwitch;
     assign gotoSwitch = 0;
-    wire [3:0]hardInterrupt;
 
     (* mark_debug = "true" *) reg uartStore;
     (* mark_debug = "true" *) reg uartSend;
@@ -38,7 +37,7 @@ output wire [7:0]seg, output wire [5:0]disp, output wire tx, input wire rx);
     assign memoryModeDbg = memoryMode;
 
     //assign hardInterrupt = intTest == 0 ? 4'b0001 : 4'b0000;
-    assign hardInterrupt = 4'b0000;
+    //assign hardInterrupt = 4'b0000;
     wire exception;
 
     //reg [7:0]memory[0:1000];

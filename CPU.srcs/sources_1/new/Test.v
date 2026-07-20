@@ -11,6 +11,7 @@ module Test;
     wire [7:0]data;
     wire [7:0]seg;
     wire [5:0]disp;
+    reg [3:0]hardInterrupt;
 
     reg [7:0]dataDly;
 
@@ -34,6 +35,7 @@ module Test;
         .deviceEn(deviceEn), 
         .addressOut(addressOut), 
         .data(data),
+        .hardInterrupt(hardInterrupt),
         .seg(seg), 
         .disp(disp));
 
@@ -56,7 +58,7 @@ module Test;
 
     for(i = 0; i < 65536; i = i + 1)
     begin      
-        memory[i] = 8'hzz;
+        memory[i] = 8'hff;
     end
     $readmemb("data.txt", memory);
     end
@@ -76,6 +78,7 @@ module Test;
         //prgmSwch = 0;
         //haltSwch = 0;
         //gotoSwitch = 0;
+        hardInterrupt = 0;
         enBtn = 1;
         rst = 1;
         #5;
@@ -84,6 +87,11 @@ module Test;
         rst = 1;
         #100;
         enBtn = 0;
+
+        #400;
+        hardInterrupt = 1;
+        #100;
+        hardInterrupt = 0;
 
         #100000;
         #100000;
