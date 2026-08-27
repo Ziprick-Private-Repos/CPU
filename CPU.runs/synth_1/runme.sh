@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.runs/synth_1'
+HD_PWD='C:/Users/jmzip/Documents/Repos/CPU/CPU.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

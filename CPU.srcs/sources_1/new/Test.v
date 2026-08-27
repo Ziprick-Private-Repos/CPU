@@ -5,6 +5,11 @@ module Test;
     reg clkIn; 
     reg rst;
     reg enBtn;
+    reg step;
+    reg prgm;
+    reg pause;
+    reg goto;
+
     wire memoryMode;
     wire [1:0]deviceEn;
     wire [23:0]addressOut; 
@@ -31,6 +36,10 @@ module Test;
         .clkIn(clkIn), 
         .rst(rst), 
         .enBtn(enBtn),
+        .step(step),
+        .prgm(prgm),
+        .goto(goto),
+        .pause(pause),
         .memoryMode(memoryMode), 
         .deviceEn(deviceEn), 
         .addressOut(addressOut), 
@@ -75,9 +84,10 @@ module Test;
         //portAIn = 8'h3b;
         //portBIn = 8'hf8;
 
-        //prgmSwch = 0;
-        //haltSwch = 0;
-        //gotoSwitch = 0;
+        step = 0;
+        pause = 0;
+        prgm = 0;
+
         hardInterrupt = 0;
         enBtn = 1;
         rst = 1;
@@ -88,11 +98,13 @@ module Test;
         #100;
         enBtn = 0;
 
-        #400;
-        hardInterrupt = 1;
-        #100;
-        hardInterrupt = 0;
+        //#400;
+        //hardInterrupt = 1;
+       // #100;
+        //hardInterrupt = 0;
 
+        #100000;
+        #100000;
         #100000;
         #100000;
         #100000;

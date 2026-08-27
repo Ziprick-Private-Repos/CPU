@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.runs/impl_1/IO.tcl"
+  variable script "C:/Users/jmzip/Documents/Repos/CPU/CPU.runs/impl_1/IO.tcl"
   variable category "vivado_impl"
 }
 
@@ -132,15 +132,15 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir {X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.cache/wt} [current_project]
-  set_property parent.project_path {X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.xpr} [current_project]
-  set_property ip_output_repo {{X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.cache/ip}} [current_project]
+  set_property webtalk.parent_dir C:/Users/jmzip/Documents/Repos/CPU/CPU.cache/wt [current_project]
+  set_property parent.project_path C:/Users/jmzip/Documents/Repos/CPU/CPU.xpr [current_project]
+  set_property ip_output_repo C:/Users/jmzip/Documents/Repos/CPU/CPU.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet {{X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.runs/synth_1/IO.dcp}}
+  add_files -quiet C:/Users/jmzip/Documents/Repos/CPU/CPU.runs/synth_1/IO.dcp
 OPTRACE "read constraints: implementation" START { }
-  read_xdc {{X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.srcs/constrs_1/new/Hardware.xdc}}
+  read_xdc C:/Users/jmzip/Documents/Repos/CPU/CPU.srcs/constrs_1/new/Hardware.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "read constraints: implementation_pre" START { }
 OPTRACE "read constraints: implementation_pre" END { }

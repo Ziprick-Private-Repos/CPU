@@ -7,11 +7,11 @@
 
 //deviceEn => 2'b10==RAM
 //deviceEn => 2'b01==ROM
-module IO(input wire clkIn, input wire rst, input wire enBtn, input wire stepBtn, output wire memoryMode, output reg [1:0]deviceEn, output wire [23:0]addressOut, inout wire [7:0]data, 
+module IO(input wire clkIn, input wire rst, input wire enBtn, input wire step, input wire prgm, input wire pause, input wire goto,
+output wire memoryMode, output reg [1:0]deviceEn, output wire [23:0]addressOut, inout wire [7:0]data, 
 input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, output wire tx, input wire rx);
-    wire gotoSwitch;
-    assign gotoSwitch = 0;
 
+    //debug lines to be removed
     (* mark_debug = "true" *) reg uartStore;
     (* mark_debug = "true" *) reg uartSend;
     (* mark_debug = "true" *) wire [23:0]addressOutDbg;
@@ -26,7 +26,7 @@ input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, outp
     (* mark_debug = "true" *) wire [7:0]r1;
     (* mark_debug = "true" *) wire [1:0]deviceEnDbg;
     (* mark_debug = "true" *) wire memoryModeDbg;
-    wire step;
+    (* mark_debug = "true" *) wire [3:0]intDbg;
 
     assign addressOutDbg = addressOut;
     assign dataDbg = data;
@@ -35,6 +35,7 @@ input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, outp
     assign enBtnDbg = enBtn;
     assign deviceEnDbg = deviceEn;
     assign memoryModeDbg = memoryMode;
+    assign intDbg = hardInterrupt;
 
     //assign hardInterrupt = intTest == 0 ? 4'b0001 : 4'b0000;
     //assign hardInterrupt = 4'b0000;
@@ -53,10 +54,14 @@ input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, outp
     assign data = memoryMode == 1 ? 8'hZZ : dataOut;
     assign dataIn = data;
 
+    //can be removed
     Uart uart(.clk(clkIn), .rst(rst), .send(uartSend), .storeData(uartStore), .data(dataOut), .tx(tx), .rx(rx));
     SevenSegDisp segDisp(.clk(clkIn), .rst(rst), .data2(pc[7:0]), .data1(r1), .data0(dataIn), .seg(seg), .disp(disp));
+    
+
+    //debounce can be removed
     Debounce debounce(.clk(clkIn), .rst(rst), .btn(enBtn), .debBtn(en));
-    Debounce debounce1(.clk(clkIn), .rst(rst), .btn(stepBtn), .debBtn(step));
+    //Debounce debounce1(.clk(clkIn), .rst(rst), .btn(stepBtn), .debBtn(step));
     
     always @(posedge clkIn or negedge rst)
     begin
@@ -118,14 +123,17 @@ input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, outp
 
     //assign deviceEn = addressOut < 16'd8192 ? 2'b01 : 2'b10; //ROM : RAM
 
-    Control control(.clk(clkIn), .rstIn(rst), .clkEn(clkEn), .step(step),
+    Control control(.clk(clkIn), .rstIn(rst), .clkEn(clkEn), 
+    .step(step),
+    .prgm(prgm),
+    .pause(pause),
+    .goto(goto),
     .addrOut(addressOut),
     .addrIn(address),
     .memoryMode(memoryMode),
     .toDataBus(dataOut),
     .dataIn(dataIn),
     .hardInterrupt(hardInterrupt),
-    .gotoSwitch(gotoSwitch),
     .exception(exception),
     .pcOut(pc),
     .r1Dbg(r1));

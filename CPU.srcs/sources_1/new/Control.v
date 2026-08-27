@@ -1,14 +1,13 @@
 `timescale 1ns / 1ps
 `default_nettype none
 
-module Control(input wire clk, input wire rstIn, input wire clkEn, input wire step,
+module Control(input wire clk, input wire rstIn, input wire clkEn, input wire step, input wire prgm, input wire pause, input wire goto,
     output wire [23:0]addrOut,
     input wire [23:0]addrIn,
     output reg memoryMode,
     output reg [7:0]toDataBus,
     input wire [7:0]dataIn,
     input wire [3:0]hardInterrupt,
-    input wire gotoSwitch,
     output wire exception,
     output wire [23:0]pcOut,
     output wire [7:0]r1Dbg);
@@ -27,7 +26,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
         localparam IDLE_WAIT_CYCLE = 1;
     `endif
 
-    localparam PC_START_ADDRESS_ON_POWER = 24'd8192;
+    localparam PC_START_ADDRESS_ON_POWER = 24'h0;
     //localparam PC_START_ADDRESS_ON_POWER = 24'd512;
 
     //stack
@@ -42,63 +41,62 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
     parameter INVALID_INSTRUCTION   = 8'h01;
     parameter DIV_BY_ZERO           = 8'h02;
     parameter INVALID_S_INT         = 8'h03;
+    parameter STACK_OVERFLOW        = 8'h04;
+    parameter SEGMENTATION_FAULT    = 8'h05;
+
     //...
     parameter GENERAL_FAULT         = 8'h04;
 
     //hardware ints
     //...
-    parameter H_INT_EXCEPTION       = 8'd15;
+    parameter H_INT_PIT             = 8'd14;
+    parameter H_INT_EXCEPTION       = 8'd15; //triggers for any exception
 
-    parameter MAX_PIT_TIMER         = 24'd200_000; //@2mhz=>100ms
-    reg [23:0]PITCnt;
-    reg triggerPIT;
-    reg PITFlag;
+    //external hardware int pointers
+    parameter IRQ_1_ADDR  = 24'd4;
+    parameter IRQ_2_ADDR  = 24'd8;
+    parameter IRQ_3_ADDR  = 24'd12;
+    parameter IRQ_4_ADDR  = 24'd16;
+    parameter IRQ_5_ADDR  = 24'd20;
+    parameter IRQ_6_ADDR  = 24'd24;
+    parameter IRQ_7_ADDR  = 24'd28;
+    parameter IRQ_8_ADDR  = 24'd32;
+    parameter IRQ_9_ADDR  = 24'd36;
+    parameter IRQ_10_ADDR = 24'd40;
+    parameter IRQ_11_ADDR = 24'd44;
+    parameter IRQ_12_ADDR = 24'd48;
+    parameter IRQ_13_ADDR = 24'd52;
+    parameter IRQ_14_ADDR = 24'd56;
+    parameter IRQ_15_ADDR = 24'd60;
 
-    //external hardware interrupt pointers
-    parameter IRQ_1_ADDR  = 24'd0;
-    parameter IRQ_2_ADDR  = 24'd4;
-    parameter IRQ_3_ADDR  = 24'd8;
-    parameter IRQ_4_ADDR  = 24'd12;
-    parameter IRQ_5_ADDR  = 24'd16;
-    parameter IRQ_6_ADDR  = 24'd20;
-    parameter IRQ_7_ADDR  = 24'd24;
-    parameter IRQ_8_ADDR  = 24'd28;
-    parameter IRQ_9_ADDR  = 24'd32;
-    parameter IRQ_10_ADDR = 24'd36;
-    parameter IRQ_11_ADDR = 24'd40;
-    parameter IRQ_12_ADDR = 24'd44;
-    parameter IRQ_13_ADDR = 24'd48;
-    parameter IRQ_14_ADDR = 24'd52;
-    parameter IRQ_15_ADDR = 24'd56;
+    //internal exception int pointers
+    parameter EXP_1_ADDR  = 24'd64;
+    parameter EXP_2_ADDR  = 24'd68;
+    parameter EXP_3_ADDR  = 24'd72;
+    parameter EXP_4_ADDR  = 24'd76;
+    parameter EXP_5_ADDR  = 24'd80;
+    parameter EXP_6_ADDR  = 24'd84;
+    parameter EXP_7_ADDR  = 24'd88;
+    parameter EXP_8_ADDR  = 24'd92;
+    parameter EXP_9_ADDR  = 24'd96;
+    parameter EXP_10_ADDR = 24'd100;
+    parameter EXP_11_ADDR = 24'd104;
+    parameter EXP_12_ADDR = 24'd108;
+    parameter EXP_13_ADDR = 24'd112;
+    parameter EXP_14_ADDR = 24'd116;
+    parameter EXP_15_ADDR = 24'd120;
 
-    //internal exception interrupt pointers
-    parameter EXP_1_ADDR  = 24'd60;
-    parameter EXP_2_ADDR  = 24'd64;
-    parameter EXP_3_ADDR  = 24'd68;
-    parameter EXP_4_ADDR  = 24'd72;
-    parameter EXP_5_ADDR  = 24'd76;
-    parameter EXP_6_ADDR  = 24'd80;
-    parameter EXP_7_ADDR  = 24'd84;
-    parameter EXP_8_ADDR  = 24'd88;
-    parameter EXP_9_ADDR  = 24'd92;
-    parameter EXP_10_ADDR = 24'd96;
-    parameter EXP_11_ADDR = 24'd100;
-    parameter EXP_12_ADDR = 24'd104;
-    parameter EXP_13_ADDR = 24'd108;
-    parameter EXP_14_ADDR = 24'd112;
-    parameter EXP_15_ADDR = 24'd116;
-
-    //software interrupt call pointers
-    parameter SOFT_INT_16_ADDR = 24'd120;
-    parameter SOFT_INT_17_ADDR = 24'd124;
-    parameter SOFT_INT_18_ADDR = 24'd128;
-    parameter SOFT_INT_19_ADDR = 24'd132;
-    parameter SOFT_INT_20_ADDR = 24'd136;
-    parameter SOFT_INT_21_ADDR = 24'd140;
-    parameter SOFT_INT_22_ADDR = 24'd144;
+    //software int call pointers
+    parameter SOFT_INT_16_ADDR = 24'd124;
+    parameter SOFT_INT_17_ADDR = 24'd128;
+    parameter SOFT_INT_18_ADDR = 24'd132;
+    parameter SOFT_INT_19_ADDR = 24'd136;
+    parameter SOFT_INT_20_ADDR = 24'd140;
+    parameter SOFT_INT_21_ADDR = 24'd144;
+    parameter SOFT_INT_22_ADDR = 24'd148;
 
     //first address immediately after the interrupt vector table
-    parameter VECTOR_TABLE_END = 24'd148;
+    parameter VECTOR_TABLE_END = 24'd152;
 
     //states
     reg [3:0]accessTimeCycleCount;
@@ -170,8 +168,6 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
         SSFPR   = 8'h36,
         SSFPM   = 8'h37,
         RTSV    = 8'h39,
-        PITST   = 8'h41,
-        PITCLR  = 8'h42,
         BRL     = 8'h44,
 
         OR      = 8'h80,
@@ -278,7 +274,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
     //INT HANDLE
     reg [7:0]intNum;
     (* mark_debug = "true" *) reg [7:0]exceptNum;
-    wire pEdge;
+    wire nEdge;
     reg disableInt;
     reg [7:0]intLock;
     reg sigDelay;
@@ -289,10 +285,10 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
     //----------------------------------------
 
-    assign pEdge = (hardInterrupt[0] | hardInterrupt[1] | hardInterrupt[2] | hardInterrupt[3]) & ~sigDelay1;
+    assign nEdge = (hardInterrupt[0] == 0 | hardInterrupt[1] == 0 | hardInterrupt[2] == 0 | hardInterrupt[3] == 0) & ~sigDelay1;
     assign addrOut = mar;
 
-    always @(posedge clk or negedge rstIn or posedge gotoSwitch)
+    always @(posedge clk or negedge rstIn or posedge goto)
     begin
         //step state machine here
         //
@@ -301,19 +297,9 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
         //
         //////////////////////////
 
-
-        
-        PITCnt <= PITCnt + 1;
-
-        if(PITCnt >= MAX_PIT_TIMER)
+        if(rstIn == 0 || rst || goto)
         begin
-            PITCnt <= 0;
-            triggerPIT <= 0;
-        end
-
-        if(rstIn == 0 || rst || gotoSwitch)
-        begin
-            if(gotoSwitch)
+            if(goto)
                 pc <= addrIn;
 
             else
@@ -324,9 +310,6 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
             end
 
             rst <= 0;
-            PITFlag <= 0;
-            PITCnt <= 0;
-            triggerPIT <= 0;
             sigDelay <= 0;
             sigDelay1 <= 0;
             disableInt <= 0;
@@ -365,25 +348,13 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
         else if(clkEn)
         begin
-            sigDelay <= (hardInterrupt[0] | hardInterrupt[1] | hardInterrupt[2] | hardInterrupt[3]);
+            sigDelay <= (hardInterrupt[0] == 0 | hardInterrupt[1] == 0 | hardInterrupt[2] == 0 | hardInterrupt[3] == 0);
             sigDelay1 <= sigDelay;
 
-            if(pEdge == 1'b1)
+            if(nEdge == 1'b1)
             begin    
                 intLock <= hardInterrupt;
             end
-
-            //if(memoryMode == ADDR_MODE_RD)
-            //    addrOut <= addressOutBuff;
-
-            //else if(memoryMode == ADDR_MODE_RD)
-            //    addrOut <= pc;
-
-            //else if(memoryMode == ADDR_MODE_WRT)
-            //    addrOut <= addressOutBuff;
-
-            //else
-            //    addrOut <= pc;
 
             case(state)
                 I_IDLE:
@@ -417,23 +388,17 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         r3En <= 0;
                         r4En <= 0;
 
-                        if((intLock && disableInt == 1'b0) || exceptNum || triggerPIT)
+                        if(intLock || exceptNum) //catch hardware ints or exceptions
                         begin
                             if(exceptNum)
-                                intLock <= 8'hff;
+                                intLock <= 4'b0000;
+
                             //push pc
                             instruction <= H_INT;
                             state <= I_DECODE;
-                            triggerPIT <= 0;
                         end
 
-                        else if(intNum)
-                        begin
-                            instruction <= H_INT;
-                            state <= I_DECODE;
-                        end
-
-                        else if(intLock == 1'b0)
+                        else if(intLock == 1'b0) //normal instruction
                         begin
                             instruction <= mdr;
                             state <= I_DECODE;
@@ -850,54 +815,50 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
                             case(intLock)
                                 //hardware int
-                                4'b0001:
+                                4'b1110:
                                     intNum <= 1;
 
-                                4'b0010:
+                                4'b1101:
                                     intNum <= 2;
 
-                                4'b0011:
-                                    intNum <= 3; 
-
-                                4'b0100:
-                                    intNum <= 4;
-
-                                4'b0101:
-                                    intNum <= 5;
-
-                                4'b0110:
-                                    intNum <= 6;   
-
-                                4'b0111:
-                                    intNum <= 7;
-
-                                4'b1000:
-                                    intNum <= 8;
-
-                                4'b1001:
-                                    intNum <= 9;  
-
-                                4'b1010:
-                                    intNum <= 10;
+                                4'b1100:
+                                    intNum <= 3;
 
                                 4'b1011:
+                                    intNum <= 4;
+
+                                4'b1010:
+                                    intNum <= 5;
+
+                                4'b1001:
+                                    intNum <= 6;
+
+                                4'b1000:
+                                    intNum <= 7;
+
+                                4'b0111:
+                                    intNum <= 8;
+
+                                4'b0110:
+                                    intNum <= 9;
+
+                                4'b0101:
+                                    intNum <= 10;
+
+                                4'b0100:
                                     intNum <= 11;
 
-                                4'b1100:
-                                    intNum <= 12;   
+                                4'b0011:
+                                    intNum <= 12;
 
-                                4'b1101:
+                                4'b0010:
                                     intNum <= 13;
 
-                                4'b1110:
+                                4'b0001:
                                     intNum <= 14;
 
-                                4'b1111:
-                                    intNum <= H_INT_EXCEPTION;    
-
-                                //exceptions
-                                default:
-                                    intNum <= 7'd15 + exceptNum;
+                                4'b0000:
+                                    intNum <= H_INT_EXCEPTION;
                             endcase
 
                             cycleCount <= 4;
@@ -929,19 +890,6 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         SPDRFR:
                         begin
                             state <= I_ACCESS_REG_READ;
-                        end
-
-                        PITST:
-                        begin
-                            PITFlag <= 1;
-                            state <= I_PC_NEXT;
-                        end
-
-                        PITCLR:
-                        begin
-                            tmpReg <= {7'b0000_000, PITFlag};
-                            r4En <= 1;
-                            state <= I_PC_NEXT;
                         end
 
                         //ALU
@@ -3896,6 +3844,9 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
                         else if(instruction == DIVS)
                         begin
+                            if(divZeroBus == 1)
+                                exceptNum <= DIV_BY_ZERO;
+
                             r3En <= 0;
                             tmpReg <= remainderS[7:0];
                             r4En <= 1;
@@ -4291,19 +4242,6 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                                 mar <= pc + 2;
                             end
 
-                            PITST:
-                            begin
-                                pc <= pc + 1;
-                                mar <= pc + 1;
-                            end
-
-                            PITCLR:
-                            begin
-                                PITFlag <= 0;
-                                pc <= pc + 1;
-                                mar <= pc + 1;
-                            end
-
                             //ALU
                             OR:
                             begin
@@ -4439,38 +4377,39 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                                         mar <= IRQ_13_ADDR;
                                     end
 
-                                    8'd14:
-                                    begin
-                                        pc <= IRQ_14_ADDR;
-                                        mar <= IRQ_14_ADDR;
-                                    end
+                                    //8'd14:
+                                    //begin
+                                    //    pc <= IRQ_14_ADDR;
+                                    //    mar <= IRQ_14_ADDR;
+                                    //end
 
-                                    8'd15:
-                                    begin
-                                        pc <= IRQ_15_ADDR;
-                                        mar <= IRQ_15_ADDR;
-                                    end
+                                    //8'd15:
+                                    //begin
+                                    //    pc <= IRQ_15_ADDR;
+                                    //    mar <= IRQ_15_ADDR;
+                                    //end
 
                                     default: //exceptions
                                     begin
+                                        exceptNum <= 0;
                                         case(exceptNum)
                                             INVALID_INSTRUCTION:
                                             begin
-                                                exceptNum <= INVALID_INSTRUCTION;
+                                                //exceptNum <= INVALID_INSTRUCTION;
                                                 pc <= EXP_1_ADDR;
                                                 mar <= EXP_1_ADDR;
                                             end
 
                                             DIV_BY_ZERO:
                                             begin
-                                                exceptNum <= DIV_BY_ZERO;
+                                                //exceptNum <= DIV_BY_ZERO;
                                                 pc <= EXP_2_ADDR;
                                                 mar <= EXP_2_ADDR;
                                             end
 
                                             INVALID_S_INT:
                                             begin
-                                                exceptNum <= INVALID_S_INT;
+                                                //exceptNum <= INVALID_S_INT;
                                                 pc <= EXP_3_ADDR;
                                                 mar <= EXP_3_ADDR;
                                             end

@@ -270,9 +270,10 @@ output reg divZero);
 					8'b1001_0110: //DIVS
 					begin
 						//regA == dividend, regB == divisor
-						if(divisor == 0) //div by zero
+						if(divisorS == 0) //div by zero
 						begin
-
+							divZero <= 1;
+							divDone <= 1;
 						end
 
 						else

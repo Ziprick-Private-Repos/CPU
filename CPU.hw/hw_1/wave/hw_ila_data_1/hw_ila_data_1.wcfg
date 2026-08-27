@@ -3,21 +3,23 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
+      <db_ref path="C:/Users/jmzip/Documents/Repos/CPU/CPU.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1">
          <top_modules>
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0"></ZoomStartTime>
-      <ZoomEndTime time="25"></ZoomEndTime>
+      <ZoomEndTime time="2,049"></ZoomEndTime>
       <Cursor1Time time="0"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="184"></NameColumnWidth>
-      <ValueColumnWidth column_width="67"></ValueColumnWidth>
+      <ValueColumnWidth column_width="59"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="23" />
+   <WVObjectSize size="24" />
+   <wave_markers>
+   </wave_markers>
    <wvobject fp_name="control/mar" type="array">
       <obj_property name="DisplayName">FullPathName</obj_property>
       <obj_property name="ElementShortName">control/mar[23:0]</obj_property>
@@ -207,10 +209,17 @@
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
    </wvobject>
-   <wvobject fp_name="uartStore" type="array">
+   <wvobject fp_name="uartStore" type="logic">
       <obj_property name="DisplayName">FullPathName</obj_property>
-      <obj_property name="ElementShortName">uartStore[7:0]</obj_property>
-      <obj_property name="ObjectShortName">uartStore[7:0]</obj_property>
+      <obj_property name="ElementShortName">uartStore</obj_property>
+      <obj_property name="ObjectShortName">uartStore</obj_property>
+      <obj_property name="LABELRADIX">true</obj_property>
+      <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>
+   </wvobject>
+   <wvobject fp_name="intDbg" type="array">
+      <obj_property name="DisplayName">FullPathName</obj_property>
+      <obj_property name="ElementShortName">intDbg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">intDbg[3:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
       <obj_property name="LABELRADIX">true</obj_property>
       <obj_property name="WaveformStyle">STYLE_DIGITAL</obj_property>

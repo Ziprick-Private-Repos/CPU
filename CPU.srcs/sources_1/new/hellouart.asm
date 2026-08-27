@@ -1,10 +1,33 @@
 org $0
 offset @0
+bra Start
 
 equ UART_SEND #$FFFF;
 equ UART_STORE #$FFFE;
 
 IntTable:
+
+Irq1:
+	bra Irq1Hndlr
+Irq2:
+	bra Irq1Hndlr
+Irq3:
+	bra Irq1Hndlr
+
+Irq1Hndlr:
+	spir Int1Str
+	call LoadStr
+	stb UART_SEND
+	iret
+
+Irq2Hndlr:
+	spir Int2Str
+	call LoadStr
+	stb UART_SEND
+	iret
+
+Irq3Hndlr:
+	iret
 
 ;...
 ;512
@@ -403,6 +426,14 @@ LoadStr:
 str:
 dbh 10,13
 dbc "ready! "
+dbh 0
+
+Int1Str:
+dbc "Int 1 called!"
+dbh 0
+
+Int2Str:
+dbc "Int 2 called!"
 dbh 0
 
 Hex:

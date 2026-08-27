@@ -4,7 +4,7 @@
 <!-- Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.                   -->
 <!-- Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.   -->
 
-<Project Product="Vivado" Version="7" Minor="65" Path="X:/Programming Archive/##Current Projects Backup##/Hardware/FPGA/CPU/CPU.xpr">
+<Project Product="Vivado" Version="7" Minor="65" Path="C:/Users/jmzip/Documents/Repos/CPU/CPU.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="cb418ea9cb6e429cbfa0e1aeaaa3d1d8"/>
