@@ -5,8 +5,12 @@ bra Start
 equ UART_SEND #$FFFF;
 equ UART_STORE #$FFFE;
 
-equ MemStart #$2000
-equ MemEnd #$2100
+equ MemCount0 #$2000
+equ MemCount1 #$2001
+equ MemCount2 #$2002
+
+equ MemStart #$2003
+equ MemEnd #$10000
 
 ; ============================================================================
 ; External Hardware Interrupt Vectors
@@ -209,78 +213,168 @@ SoftInt22Hndlr:
 offset @512
 
 Start:
-	call Delay
+	call MedDelay
 
 	spir BootupStr
 	call LoadStr
 	stb UART_SEND
-	call Delay
+	call MedDelay
 
-	call MemChk
+	bra MemChk
+
+Continue:
+	call MedDelay
+	spir TestStr
+	call LoadStr
+	stb UART_SEND
 
 End:
 	bra End
 
+PrintMem:
+    pusha                       ;preserve registers while printing progress
+
+    ldm MemCount2               ;load high byte of 24-bit memory counter
+    call PrintHex
+
+    ldm MemCount1               ;load middle byte of memory counter
+    call PrintHex
+
+    ldm MemCount0               ;load low byte of memory counter
+    call PrintHex
+
+    lod #$A                     ;newline
+    stb UART_STORE
+    lod #$D                     ;carriage return
+    stb UART_STORE
+    stb UART_SEND               ;send complete progress string over UART
+
+    popa                        ;restore registers
+    rts
+
+
 MemChk:
-	call Delay
+    lod #$0                     ;clear 24-bit memory test counter
+    stb MemCount0
+    stb MemCount1
+    stb MemCount2
 
-	spir TestingMem
-	call LoadStr
-	stb UART_SEND
-	call Delay
+    call MedDelay
+
+    spir TestingMem             ;print memory test startup message
+    call LoadStr
+    stb UART_SEND
+    call MedDelay
+
+    spdr MemStart               ;set destination pointer to first test address
+    spir MemStart               ;set source pointer to first test address
+    sspr MemEnd                 ;set memory test end address
+
+    lod #$55                    ;test pattern written to each memory location
+
+    call PrintMem               ;print initial counter value 000000
 
 
-	pusha
+MemChkCount:
+    mov r1,r4                   ;save $55 test pattern for comparison
+    stosb                       ;write test pattern to current memory address
+    lodsb                       ;read test pattern back from same address
+    cmp r4                      ;compare read value against expected $55
+    bne MemChkBad               ;memory failed if values do not match
 
-	spdr MemStart
-	spir MemStart
-	sspr MemEnd
+    pusha                       ;preserve test state while updating counter
 
-	lod #$55 ;sig to test against
-	mov r4,r1
-	lod #0 ;counter
+    lod #$FF                    ;value used to detect byte rollover
+    mov r2,r1
 
-.Count:
-	;push r1
-	mov r1,r4
-	stosb ;save to mem
+    ldm MemCount0               ;load low byte of 24-bit counter
+    cmp r2                      ;check if low byte has reached $FF
+    beq MemChkRoll0             ;roll into middle byte if low byte is full
 
-	lodsb ;load from mem
-	mov r2,r1
+    inc                         ;increment low counter byte normally
+    stb MemCount0
 
-	;check for proper data
-	lod #$55
-	cmp r2
-	bne MemChk.Count.Done.Bad
+    popa                        ;restore $55 test pattern and registers
 
-	sdequal
-	beq MemChk.Count.Done
-	
-	;pop r1
-	;inc
-	bra MemChk.Count
+    sdequal                     ;check whether memory test reached end address
+    sdbeq MemChkDone            ;finish test when end address is reached
 
-.Done:
-	spir MemStr
-	call LoadStr
-	stb UART_SEND
-	popa
-	rts
+    bra MemChkCount             ;test next memory location
 
-.Bad:
-	spir MemBadStr
-	call LoadStr
-	stb UART_SEND
-	popa
-	rts
-	
+
+MemChkRoll0:
+    inc                         ;roll MemCount0 from $FF to $00
+    stb MemCount0
+
+    ldm MemCount1               ;load middle byte of 24-bit counter
+    cmp r2                      ;check if middle byte must also roll over
+    beq MemChkRoll1             ;carry into high byte if middle byte is $FF
+
+    inc                         ;increment middle counter byte
+    stb MemCount1
+
+    popa                        ;restore $55 test pattern and registers
+
+    call PrintMem               ;print progress once every $100 bytes
+
+    sdequal                     ;check whether memory test reached end address
+    sdbeq MemChkDone
+
+    bra MemChkCount             ;continue testing
+
+
+MemChkRoll1:
+    inc                         ;roll MemCount1 from $FF to $00
+    stb MemCount1
+
+    ldm MemCount2               ;carry into high byte of 24-bit counter
+    inc
+    stb MemCount2
+
+    popa                        ;restore $55 test pattern and registers
+
+    call PrintMem               ;print progress at each $10000 boundary
+
+    sdequal                     ;check whether memory test reached end address
+    sdbeq MemChkDone
+
+    bra MemChkCount             ;continue testing
+
+
+MemChkDone:
+    call MedDelay
+    call MedDelay
+
+    spir MemStr                 ;memory test completed successfully
+    call LoadStr
+    stb UART_SEND
+
+    bra Continue
+
+
+MemChkBad:
+    call PrintMem               ;print exact offset of failed memory location
+
+    call MedDelay
+    call MedDelay
+
+    spir MemBadStr              ;report memory test failure
+    call LoadStr
+    stb UART_SEND
+
+    bra Continue
 
 ; ============================================================================
 ; Utility Routines
 ; ============================================================================
 
 PrintHex:
-	mov r4,r1
+	mov r4,r1       ; save value
+
+	lod #$0F
+	mov r3,r1       ; mask = 0x0F
+
+	mov r1,r4       ; restore value
 	shr
 	shr
 	shr
@@ -355,7 +449,7 @@ MedDelay:
 	pusha
 	lod #$0
 	mov r2,r1
-	lod #$FF
+	lod #$30
 	nop
 	nop
 	nop
@@ -373,11 +467,7 @@ MedDelay:
 		rts
 
 Delay:
-	;pusha
-	push r1
-	push r2
-	push r3
-	push r4
+	pusha
 	lod #$0
 	mov r2,r1
 	lod #$FF
@@ -390,11 +480,7 @@ Delay:
 		cmp r2
 		bne Delay.loop
 	.done:
-		;popa
-		pop r4
-		pop r3
-		pop r2
-		pop r1
+		popa
 		rts
 
 ; ============================================================================
@@ -437,9 +523,10 @@ dbh A,D,0
 
 TestingMem:
 dbc "Testing memory"
-dbh 0
+dbh A,D,0
 
 MemStr:
+dbh A,D
 dbc "Memory OK!"
 dbh A,D,0
 
@@ -450,6 +537,10 @@ dbh A,D,0
 Space:
 dbc " "
 dbh 0
+
+TestStr:
+dbc "Testing for crash"
+dbh A,D,0
 
 HexTable:
 dbc "0123456789ABCDEF"

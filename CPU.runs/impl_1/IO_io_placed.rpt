@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date                      : Fri Jul 31 15:54:19 2026
+| Date                      : Fri Aug 28 21:50:32 2026
 | Host                      : Iron-Man running 64-bit major release  (build 9200)
 | Command                   : report_io -file IO_io_placed.rpt
 | Design                    : IO
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            59 |
+|            58 |
 +---------------+
 
 
@@ -289,7 +289,7 @@ Table of Contents
 | K10        |                  | Dedicated  | VCCADC_0                     | XADC          |             |       0 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | K11        |                  |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | K12        |                  |            | VCCAUX                       | VCCAUX        |             |         |            |      |                     |                      |    1.80 |            |           |          |      |                  |              |                   |              |
-| K13        | stepBtn          | High Range | IO_L19P_T3_A22_15            | INPUT         | LVCMOS33    |      15 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
+| K13        |                  | High Range | IO_L19P_T3_A22_15            | User IO       |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |
 | K14        | enBtn            | High Range | IO_L19N_T3_A21_VREF_15       | INPUT         | LVCMOS33    |      15 |            |      |                     |                 NONE |         | FIXED      |           |          |      | NONE             |              |                   |              |
 | K15        |                  |            | GND                          | GND           |             |         |            |      |                     |                      |     0.0 |            |           |          |      |                  |              |                   |              |
 | K16        |                  | High Range | IO_L23N_T3_FWE_B_15          | User IO       |             |      15 |            |      |                     |                      |         |            |           |          |      |                  |              |                   |              |

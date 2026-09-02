@@ -591,7 +591,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
                         PUSHA:
                         begin
                             state <= I_ACCESS_MEM_WRITE;
-                            cycleCount <= 5;
+                            cycleCount <= 10;
                         end
 
                         POPA:
@@ -2001,22 +2001,64 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
                     else if(instruction == PUSHA)
                     begin
-                        if(cycleCount == 5)
+                        if(cycleCount == 10)
                         begin
 							toDataBus <= {2'b00, srFlag, divZero, greaterFlag, zeroFlag, eqFlag, overflowFlag};
                             mar <= stackPointer;
                             stackPointer <= stackPointer - 1;                 
                             cycleCount <= cycleCount - 1;
-							memoryMode <= ADDR_MODE_WRT;
+							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
+							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
+                        end
+
+                        else if(cycleCount == 9)
+                        begin
+                            memoryMode <= ADDR_MODE_WRT;
+                            cycleCount <= cycleCount - 1;
+							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
+							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
+                        end
+
+                        else if(cycleCount == 8)
+                        begin
+                            toDataBus <= r1Out;
+                            mar <= stackPointer;
+                            stackPointer <= stackPointer - 1;                 
+                            cycleCount <= cycleCount - 1;
+							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
+							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
+                        end
+
+                        else if(cycleCount == 7)
+                        begin
+                            memoryMode <= ADDR_MODE_WRT;
+                            cycleCount <= cycleCount - 1;
+							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
+							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
+                        end
+
+                        else if(cycleCount == 6)
+                        begin
+                            toDataBus <= r2Out;
+                            mar <= stackPointer;
+                            stackPointer <= stackPointer - 1;                 
+                            cycleCount <= cycleCount - 1;
+							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
+							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
+                        end
+
+                        else if(cycleCount == 5)
+                        begin
+                            memoryMode <= ADDR_MODE_WRT;
+                            cycleCount <= cycleCount - 1;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
 							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
                         end
 
                         else if(cycleCount == 4)
                         begin
-                            toDataBus <= r1Out;
+                            toDataBus <= r3Out;
                             mar <= stackPointer;
-                            memoryMode <= ADDR_MODE_WRT;
                             stackPointer <= stackPointer - 1;                 
                             cycleCount <= cycleCount - 1;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
@@ -2025,10 +2067,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
                         else if(cycleCount == 3)
                         begin
-                            toDataBus <= r2Out;
-                            mar <= stackPointer;
                             memoryMode <= ADDR_MODE_WRT;
-                            stackPointer <= stackPointer - 1;
                             cycleCount <= cycleCount - 1;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
 							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
@@ -2036,10 +2075,9 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
                         else if(cycleCount == 2)
                         begin
-                            toDataBus <= r3Out;
+                            toDataBus <= r4Out;
                             mar <= stackPointer;
-                            memoryMode <= ADDR_MODE_WRT;
-                            stackPointer <= stackPointer - 1;
+                            stackPointer <= stackPointer - 1;                 
                             cycleCount <= cycleCount - 1;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
 							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;
@@ -2047,10 +2085,7 @@ module Control(input wire clk, input wire rstIn, input wire clkEn, input wire st
 
                         else if(cycleCount == 1)
                         begin
-                            toDataBus <= r4Out;
-                            mar <= stackPointer;
                             memoryMode <= ADDR_MODE_WRT;
-                            stackPointer <= stackPointer - 1;
                             cycleCount <= cycleCount - 1;
 							accessTimeCycleCount <= IDLE_WAIT_CYCLE;
 							state <= I_ACCESS_MEM_ACCESS_WRITE_TIME;

@@ -7,9 +7,14 @@
 
 //deviceEn => 2'b10==RAM
 //deviceEn => 2'b01==ROM
-module IO(input wire clkIn, input wire rst, input wire enBtn, input wire step, input wire prgm, input wire pause, input wire goto,
+module IO(input wire clkIn, input wire rst, input wire enBtn, //input wire step, input wire prgm, input wire pause, input wire goto,
 output wire memoryMode, output reg [1:0]deviceEn, output wire [23:0]addressOut, inout wire [7:0]data, 
 input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, output wire tx, input wire rx);
+
+    wire step;
+    wire prgm;
+    wire pause;
+    wire goto;
 
     //debug lines to be removed
     (* mark_debug = "true" *) reg uartStore;
@@ -27,6 +32,7 @@ input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, outp
     (* mark_debug = "true" *) wire [1:0]deviceEnDbg;
     (* mark_debug = "true" *) wire memoryModeDbg;
     (* mark_debug = "true" *) wire [3:0]intDbg;
+    (* mark_debug = "true" *) wire exception;
 
     assign addressOutDbg = addressOut;
     assign dataDbg = data;
@@ -39,7 +45,6 @@ input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, outp
 
     //assign hardInterrupt = intTest == 0 ? 4'b0001 : 4'b0000;
     //assign hardInterrupt = 4'b0000;
-    wire exception;
 
     //reg [7:0]memory[0:1000];
     //wire [7:0]data;
@@ -63,19 +68,25 @@ input wire [3:0]hardInterrupt, output wire [7:0]seg, output wire [5:0]disp, outp
     Debounce debounce(.clk(clkIn), .rst(rst), .btn(enBtn), .debBtn(en));
     //Debounce debounce1(.clk(clkIn), .rst(rst), .btn(stepBtn), .debBtn(step));
     
+    reg run = 0;
     always @(posedge clkIn or negedge rst)
     begin
         if(rst == 0)
         begin
             clkCnt <= 0;
+            run <= 0;
         end
 
         else
         begin
+            if(en == 0)
+                run <= 1;
+
             //if(clkCnt >= 100000)
-            if(clkCnt >= 13) //3.8mhz
+            if(clkCnt >= 6) //3.8mhz
             begin
-                if(en == 0)
+                //if(en == 0)
+                if(run)
                     clkEn <= 1;
                 clkCnt <= 0;
             end

@@ -18,7 +18,6 @@ output reg zeroFlag,
 output reg eqFlag,
 output reg overflowFlag,
 output reg divZero);
-	reg [8:0]overflow;
 	reg [15:0]cycleCnt;
 
 	reg [7:0]quotient;
@@ -41,7 +40,6 @@ output reg divZero);
 			accumulator <= 0;
 			accumulatorS <= 0;
 			divZero <= 0;
-			overflow <= 0;	
 			cycleCnt <= 0;	
 			divDone <= 0;
 			quotient <= 0;
@@ -73,16 +71,22 @@ output reg divZero);
 					begin
 						accumulator <= regA | regB;
 
-						if(accumulator == 0)
+						if((regA | regB) == 0)
 							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 
 					8'b1000_0001: //and
 					begin
 						accumulator <= regA & regB;
 						
-						if(accumulator == 0)
+						if((regA & regB) == 0)
 							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 
 					8'b1000_0010: //shl
@@ -127,46 +131,78 @@ output reg divZero);
 					begin
 						accumulator <= ~regA;
 						
-						if(accumulator == 0)
+						if(~regA == 0)
 							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 
 					8'b1000_0110: //xor
 					begin
 						accumulator <= regA ^ regB;
 						
-						if(accumulator == 0)
-								zeroFlag <= 1;	
+						if((regA ^ regB) == 0)
+								zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 
 					8'b1000_0111: //add
 					begin
 						accumulator <= regA + regB;
-						overflow <= regA + regB;
-						overflowFlag <= overflow[8];
+
+						if((regA + regB) == 0)
+							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
+
+						if((regA + regB) > 255)
+							overflowFlag <= 1;
+
+						else
+							overflowFlag <= 0;
 					end
 
 					8'b1000_1000: //sub
 					begin
 						accumulator <= regA - regB;
 						
-						if(accumulator == 0)
+						if((regA - regB) == 0)
 							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 		
 					8'b1000_1001: //inc
 					begin
 						accumulator <= regA + 1'b1;
-						overflow <= regA + 1;
-						overflowFlag <= overflow[8];
+
+						if((regA + 1) > 255)
+							overflowFlag <= 1;
+
+						else
+							overflowFlag <= 0;
+
+						if((regA + 1) == 0)
+							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 					
 					8'b1000_1010: //dec
 					begin
 						accumulator <= regA - 1'b1;
 
-						if(regA == 0)
+						if((regA - 1) == 0)
 							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 
 					8'b1000_1011: //ROL
@@ -183,11 +219,17 @@ output reg divZero);
 					begin
 						accumulator <= accumulator + regA;
 
-						overflow <= regA + regB;
-						overflowFlag <= overflow[8];
+						if((accumulator + regA) > 255)
+							overflowFlag <= 1;
+
+						else
+							overflowFlag <= 0;
 						
-						if(accumulator == 0)
+						if((accumulator + regA) == 0)
 							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 
 					8'b1000_1110: //DIV
@@ -219,31 +261,45 @@ output reg divZero);
 					8'b1000_1111: //addS
 					begin
 						accumulatorS <= regS0 + regS1;
-						overflow <= regS0 + regS1;
-						overflowFlag <= overflow[8];
+
+						if((regS0 + regS1) > 65536)
+							overflowFlag <= 1;
+
+						else
+							overflowFlag <= 0;
 					end
 
 					8'b1001_0000: //subS
 					begin
 						accumulatorS <= regS0 - regS1;
 						
-						if(accumulatorS == 0)
+						if((regS0 - regS1) == 0)
 							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 
 					8'b1001_0001: //incS
 					begin
 						accumulatorS <= regS0 + 1'b1;
-						overflow <= regS0 + 1;
-						overflowFlag <= overflow[8];
+
+						if((regS0 + 1) > 65536)
+							overflowFlag <= 1;
+
+						else
+							overflowFlag <= 0;
 					end
 
 					8'b1001_0010: //decS
 					begin
 						accumulatorS <= regS0 - 1'b1;
 
-						if(regS0 == 0)
+						if((regS0 - 1) == 0)
 							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 
 					8'b1001_0011: //ROLS
@@ -260,11 +316,17 @@ output reg divZero);
 					begin
 						accumulatorS <= accumulatorS + regS0;
 
-						overflow <= regS0 + regS1;
-						overflowFlag <= overflow[8];
+						if((accumulatorS + regS0) > 65536)
+							overflowFlag <= 1;
+
+						else
+							overflowFlag <= 0;
 						
-						if(accumulatorS == 0)
+						if((accumulatorS + regS0) == 0)
 							zeroFlag <= 1;
+
+						else
+							zeroFlag <= 0;
 					end
 
 					8'b1001_0110: //DIVS
@@ -278,7 +340,7 @@ output reg divZero);
 
 						else
 						begin
-							if(dividend >= divisor)
+							if(dividendS >= divisorS)
 							begin
 								dividendS <= dividendS - divisorS;
 								quotientS <= quotientS + 1;
