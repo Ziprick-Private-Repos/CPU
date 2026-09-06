@@ -1,4 +1,5 @@
-assembler IntTest.asm -v
+rem assembler IntTest.asm -v
+assembler AluTest.asm -v
 python convertBinToVlg.py a.out
 iverilog Test.v IO.v Debounce.v Control.v ALU.v Register.v SevenSegDisp.v Uart.v
 vvp a.out
